@@ -6,14 +6,11 @@ lib_managed
 tmp
 .history
 dist
-/.idea
-/*.iml
-/*.ipr
+.idea/
+.iml/
 /out
-/.idea_modules
 /.classpath
 /.project
 /.html
-/RUNNING_PID
 /.settings
 *.iws
