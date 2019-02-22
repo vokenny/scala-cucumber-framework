@@ -5,7 +5,6 @@ import scalaj.http.{Http, HttpOptions, HttpResponse}
 
 trait Api {
 
-  val authHeader: Map[String, String] = Map("Authorization" -> "Basic cGF5QWRtaW46M2RlbnRUZWFtQTN0aCo=")
   val jsonHeader: Map[String, String] = Map("Content-Type" -> "application/json")
 
   def GET(url: String): HttpResponse[String] = {
