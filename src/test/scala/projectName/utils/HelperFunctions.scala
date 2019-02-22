@@ -15,12 +15,14 @@ object HelperFunctions extends BasePage {
   def navigateTo(page: String): Unit = {
     page match {
       case "Google" => GooglePage.goToPage()
+      case "Home"   => HomePage.goToPage()
     }
   }
 
   def expectedPage(page: String): Unit = {
     page match {
       case "Google" => GooglePage.shouldBeLoaded()
+      case "Home"   => HomePage.shouldBeLoaded()
     }
   }
 }

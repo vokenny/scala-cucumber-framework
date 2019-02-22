@@ -11,19 +11,19 @@ object Configuration {
     case "local" =>
       TestConfig(
         googleUrl     = "https://www.google.com",
-        automationUrl = "http://www.automationpractice.com"
+        automationUrl = "http://automationpractice.com"
       )
 
     case "dev" =>
       TestConfig(
         googleUrl     = "https://www.google.com",
-        automationUrl = "http://www.automationpractice.com"
+        automationUrl = "http://automationpractice.com"
       )
 
     case "qa" =>
       TestConfig(
         googleUrl     = "https://www.google.com",
-        automationUrl = "http://www.automationpractice.com"
+        automationUrl = "http://automationpractice.com"
       )
 
     case _ => throw new IllegalArgumentException(s"Environment '$environment' not known")
