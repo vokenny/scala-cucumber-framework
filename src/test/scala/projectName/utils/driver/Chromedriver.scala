@@ -1,12 +1,12 @@
-package project.utils.driver
+package projectName.utils.driver
 
 import java.net.URL
 
+import org.openqa.selenium.WebDriver
 import org.openqa.selenium.chrome.{ChromeDriver, ChromeOptions}
-import org.openqa.selenium.remote.{CapabilityType, RemoteWebDriver}
-import org.openqa.selenium.{Proxy, WebDriver}
+import org.openqa.selenium.remote.RemoteWebDriver
 
-object Chromedriver extends ProxySupport {
+object Chromedriver {
 
   def createChromeDriver(headless: Boolean = false, remote: Boolean = false): WebDriver = {
     if (remote) new RemoteWebDriver(new URL(s"http://localhost:4444/wd/hub"), chromeOptions(headless))
@@ -28,8 +28,6 @@ object Chromedriver extends ProxySupport {
   private def chromeOptions(headless: Boolean = false): ChromeOptions = {
     val options = new ChromeOptions()
 
-    if (sys.props.get("qa.proxy").isDefined) options.setCapability(CapabilityType.PROXY, proxyConfiguration)
-
     options.addArguments("test-type")
     options.addArguments("--no-sandbox")
     options.addArguments("disable-infobars")
@@ -40,9 +38,5 @@ object Chromedriver extends ProxySupport {
     else options.addArguments("start-maximized")
 
     options
-  }
-
-  private def proxyConfiguration: Proxy = {
-    new Proxy().setHttpProxy(sys.props.get("qa.proxy").get)
   }
 }

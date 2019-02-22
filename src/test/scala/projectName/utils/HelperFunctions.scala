@@ -1,6 +1,6 @@
-package project.utils
+package projectName.utils
 
-import project.pages.BasePage
+import projectName.pages._
 
 
 object HelperFunctions extends BasePage {
@@ -12,9 +12,15 @@ object HelperFunctions extends BasePage {
 
   override def shouldBeLoaded(): Unit = {}
 
+  def navigateTo(page: String): Unit = {
+    page match {
+      case "Google" => GooglePage.goToPage()
+    }
+  }
+
   def expectedPage(page: String): Unit = {
     page match {
-      case "Select Tax" =>
+      case "Google" => GooglePage.shouldBeLoaded()
     }
   }
 }

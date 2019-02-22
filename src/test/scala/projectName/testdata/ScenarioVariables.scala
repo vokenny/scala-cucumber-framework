@@ -1,4 +1,4 @@
-package project.testdata
+package projectName.testdata
 
 
 object ScenarioVariables {

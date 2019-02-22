@@ -1,7 +1,7 @@
-package project.utils.driver
+package projectName.utils.driver
 
-import project.utils.driver.Chromedriver._
-import project.utils.driver.Firefoxdriver._
+import projectName.utils.driver.Chromedriver._
+import projectName.utils.driver.Firefoxdriver._
 import org.openqa.selenium.WebDriver
 
 object Driver {

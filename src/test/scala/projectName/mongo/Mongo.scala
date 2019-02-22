@@ -1,8 +1,8 @@
-package project.mongo
+package projectName.mongo
 
 import org.mongodb.scala._
 import org.mongodb.scala.model.Filters._
-import project.mongo.MongoHelper._
+import projectName.mongo.MongoHelper._
 
 
 object Mongo {
@@ -10,7 +10,7 @@ object Mongo {
 // Connect to the default server localhost on port 27017
   val mongoClient: MongoClient = MongoClient()
 
-  val database: MongoDatabase = mongoClient.getDatabase("project")
+  val database: MongoDatabase = mongoClient.getDatabase("projectName")
 
   val collection: MongoCollection[Document] = database.getCollection("collection-name")
 

@@ -1,7 +1,7 @@
-package project.api
+package projectName.api
 
 import scalaj.http.HttpResponse
-import project.utils.Configuration.testConfig
+import projectName.utils.Configuration.testConfig
 
 
 object CatFactsBackend extends Api {

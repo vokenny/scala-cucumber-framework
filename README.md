@@ -16,17 +16,17 @@ Now, make sure you have Mongo and all the services running locally.
 
 #### Local or Development Environment
 ```
-sbt -Denvironment={local|dev} -Dbrowser={chrome|firefox|headless} clean 'test-only project.runner.Runner'
+sbt -Denvironment={local|dev} -Dbrowser={chrome|firefox|headless} clean 'test-only projectName.runner.Runner'
 ```
 #### QA Environment
 ```
-sbt -Denvironment=qa -Dbrowser={chrome|firefox|headless} clean 'test-only project.runner.QaRunner'
+sbt -Denvironment=qa -Dbrowser={chrome|firefox|headless} clean 'test-only projectName.runner.QaRunner'
 ```
 
 ### Via IntelliJ
 Set Cucumber Java configuration to:
 ```
-Glue: project.stepdefs
+Glue: projectName.stepdefs
 Feature path: src/test/resources/features
 VM options: -Denvironment={local|dev|qa} -Dbrowser={chrome|firefox|headless}
 ```
@@ -37,4 +37,4 @@ VM Options: -Denvironment={local|dev|qa} -Dbrowser={chrome|firefox|headless}
 Working directory: <blank>
 ```
 
-Then from the src/test/scala/project/runner directory, right-click > run your choice of test runner
+Then from the src/test/scala/projectName/runner directory, right-click > run your choice of test runner

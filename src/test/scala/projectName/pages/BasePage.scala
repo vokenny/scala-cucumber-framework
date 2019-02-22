@@ -1,11 +1,11 @@
-package project.pages
+package projectName.pages
 
-import project.stepdefs.Steps.waitForPageToLoad
 import org.scalatest.Matchers
 import org.scalatest.selenium.WebBrowser
+import projectName.stepdefs.Steps
 
 
-trait BasePage extends org.scalatest.selenium.Page with WebBrowser with Matchers {
+trait BasePage extends org.scalatest.selenium.Page with WebBrowser with Matchers with Steps {
 
   val url: String
 

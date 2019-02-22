@@ -7,8 +7,6 @@ scalaVersion := "2.11.11"
 val ScalatestVersion = "3.0.5"
 val CucumberVersion = "1.2.5"
 
-credentials += Credentials(Path.userHome / ".sbt" / ".credentials")
-
 libraryDependencies ++= Seq(
   "org.scalatest"           %% "scalatest"              % ScalatestVersion excludeAll ExclusionRule(organization = "org.seleniumhq.selenium"),
   "org.seleniumhq.selenium" %  "selenium-java"          % "3.7.1",

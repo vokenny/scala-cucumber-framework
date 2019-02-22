@@ -1,4 +1,4 @@
-package project.api
+package projectName.api
 
 import scalaj.http.{Http, HttpOptions, HttpResponse}
 

@@ -1,6 +1,6 @@
-package project.testdata
+package projectName.testdata
 
-import project.utils.Configuration.environment
+import projectName.utils.Configuration.environment
 
 case class CardDetails(cardNum: String, cvv: String)
 

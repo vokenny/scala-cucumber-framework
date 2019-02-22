@@ -1,4 +1,4 @@
-package project.testdata.payloads
+package projectName.testdata.payloads
 
 trait CatFactsPayloads {
 

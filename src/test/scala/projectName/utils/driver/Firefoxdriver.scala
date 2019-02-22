@@ -1,12 +1,12 @@
-package project.utils.driver
+package projectName.utils.driver
 
 import java.net.URL
 
+import org.openqa.selenium.WebDriver
 import org.openqa.selenium.firefox.{FirefoxDriver, FirefoxOptions, FirefoxProfile}
-import org.openqa.selenium.remote.{CapabilityType, RemoteWebDriver}
-import org.openqa.selenium.{Proxy, WebDriver}
+import org.openqa.selenium.remote.RemoteWebDriver
 
-object Firefoxdriver extends ProxySupport {
+object Firefoxdriver {
 
   def createFirefoxDriver(headless: Boolean = false, remote: Boolean = false, isJsEnabled: Boolean = true): WebDriver = {
     new FirefoxDriver(firefoxOptions)
@@ -23,15 +23,9 @@ object Firefoxdriver extends ProxySupport {
 
     val options = new FirefoxOptions()
 
-    if(sys.props.get("qa.proxy").isDefined) options.setCapability(CapabilityType.PROXY, proxyConfiguration)
-
     options.setProfile(profile)
     options.setAcceptInsecureCerts(true)
 
     options
-  }
-
-  private def proxyConfiguration: Proxy = {
-    new Proxy().setHttpProxy(sys.props.get("qa.proxy").get)
   }
 }

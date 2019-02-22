@@ -1,4 +1,4 @@
-package project.mongo
+package projectName.mongo
 
 import java.util.concurrent.TimeUnit
 
