@@ -1,7 +1,9 @@
 package projectName.stepdefs
 
+import java.lang
+
 import cucumber.api.scala.{EN, ScalaDsl}
-import org.openqa.selenium.support.ui.ExpectedConditions.{urlMatches, visibilityOfElementLocated}
+import org.openqa.selenium.support.ui.ExpectedConditions.{urlToBe, visibilityOfElementLocated}
 import projectName.utils.driver.Driver
 import org.openqa.selenium.{By, WebDriver, WebElement}
 import org.openqa.selenium.support.ui.{ExpectedCondition, WebDriverWait}
@@ -47,7 +49,7 @@ trait Steps extends ScalaDsl with EN with Matchers {
     wait.until(condition)
   }
 
-  def waitForRedirect(url: String): Boolean = waitFor(urlMatches(url))
+  def waitForRedirect(url: String): Boolean = waitFor(urlToBe(url))
 
   def waitForPageToLoad(): WebElement = waitFor(visibilityOfElementLocated(By.tagName("body")))
 }

@@ -2,6 +2,7 @@ package projectName.pages
 
 import org.scalatest.Matchers
 import org.scalatest.selenium.WebBrowser
+import projectName.pages.HomePage.className
 import projectName.stepdefs.Steps
 
 
@@ -28,4 +29,6 @@ trait BasePage extends org.scalatest.selenium.Page with WebBrowser with Matchers
   }
 
   def goToPage(): Unit = goTo(url)
+
+  def clickSignIn(): Unit = click on className("login")
 }

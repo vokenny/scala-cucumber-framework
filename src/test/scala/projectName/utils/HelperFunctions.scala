@@ -21,8 +21,18 @@ object HelperFunctions extends BasePage {
 
   def expectedPage(page: String): Unit = {
     page match {
-      case "Google" => GooglePage.shouldBeLoaded()
-      case "Home"   => HomePage.shouldBeLoaded()
+      case "Google"         => GooglePage.shouldBeLoaded()
+      case "Home"           => HomePage.shouldBeLoaded()
+      case "Authentication" => AuthPage.shouldBeLoaded()
+      case "Registration"   =>
+        waitForRedirect(RegistrationPage.url)
+        RegistrationPage.shouldBeLoaded()
+    }
+  }
+
+  def clickOn(elem: String): Unit = {
+    elem match {
+      case "Sign In" => HelperFunctions.clickSignIn()
     }
   }
 }
