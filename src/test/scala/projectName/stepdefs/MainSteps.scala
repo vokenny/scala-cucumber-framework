@@ -1,13 +1,18 @@
 package projectName.stepdefs
 
 import projectName.pages._
-import projectName.testdata.models.TestCust._
+import projectName.testdata.ScenarioVariables._
+import projectName.testdata.models.TestCust
 import projectName.utils.HelperFunctions
 
 class MainSteps extends Steps {
 
-  Given("""^the User does not have an existing account$""") { () =>
-//    No action
+  Given("""^the User is a (.*) customer$""") { userType: String =>
+    user = userType match {
+      case "New"      => TestCust.person
+      case "Existing" => TestCust.person
+      case "Etc"      => TestCust.person
+    }
   }
 
   When("""^the User navigates to the (.*) page$""") { page: String =>
@@ -19,12 +24,12 @@ class MainSteps extends Steps {
   }
 
   When("""^the User submits a valid email address$""") { () =>
-    AuthPage.enterEmail(person.email)
+    AuthPage.enterEmail(user.email)
     AuthPage.clickCreateAccount()
   }
 
   When("""^the User submits valid registration details$""") { () =>
-    RegistrationPage.enterValidDetails(person)
+    RegistrationPage.enterValidDetails(user)
     RegistrationPage.clickRegister()
   }
 

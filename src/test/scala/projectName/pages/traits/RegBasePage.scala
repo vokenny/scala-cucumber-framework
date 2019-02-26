@@ -1,4 +1,4 @@
-package projectName.pages
+package projectName.pages.traits
 
 import org.openqa.selenium.WebElement
 

@@ -1,6 +1,7 @@
 package projectName.utils
 
 import projectName.pages._
+import projectName.pages.traits.BasePage
 
 
 object HelperFunctions extends BasePage {

@@ -1,5 +1,6 @@
 package projectName.pages
 
+import projectName.pages.traits.RegBasePage
 import projectName.testdata.models.{TestCust, Title}
 import projectName.testdata.models.Title.Title
 import projectName.utils.Configuration.testConfig

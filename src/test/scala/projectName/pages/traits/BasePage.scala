@@ -1,8 +1,7 @@
-package projectName.pages
+package projectName.pages.traits
 
 import org.scalatest.Matchers
 import org.scalatest.selenium.WebBrowser
-import projectName.pages.HomePage.className
 import projectName.stepdefs.Steps
 
 

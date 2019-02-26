@@ -1,5 +1,6 @@
 package projectName.pages
 
+import projectName.pages.traits.BasePage
 import projectName.utils.Configuration.testConfig
 
 object GooglePage extends BasePage {
