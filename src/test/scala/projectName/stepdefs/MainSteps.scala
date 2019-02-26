@@ -25,6 +25,7 @@ class MainSteps extends Steps {
 
   When("""^the User submits valid registration details$""") { () =>
     RegistrationPage.enterValidDetails(person)
+    RegistrationPage.clickRegister()
   }
 
   Then("""^the User should be on the (.*) page$""") { page: String =>

@@ -11,4 +11,4 @@ Feature: Automation Practice: User Registration
       When the User submits a valid email address
       Then the User should be on the Registration page
       When the User submits valid registration details
-#      Then the User should be on the Successful Registration page
+      Then the User should be on the Account page

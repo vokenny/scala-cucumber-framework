@@ -24,6 +24,7 @@ object HelperFunctions extends BasePage {
       case "Google"         => GooglePage.shouldBeLoaded()
       case "Home"           => HomePage.shouldBeLoaded()
       case "Authentication" => AuthPage.shouldBeLoaded()
+      case "Account"        => AccountPage.shouldBeLoaded()
       case "Registration"   =>
         waitForRedirect(RegistrationPage.url)
         RegistrationPage.shouldBeLoaded()

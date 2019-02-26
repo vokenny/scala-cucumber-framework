@@ -14,11 +14,16 @@ object RegistrationPage extends RegBasePage {
 
   def enterValidDetails(user: TestCust): Unit = {
     selectTitle(user.title)
-    enterFirstName(user.firstName)
-    enterSurname(user.surname)
+    enterFirstname(user.firstname)
+    enterLastname(user.lastname)
     enterEmail(user.email)
     enterPassword(user.password)
     selectDoB(user.dob)
+    enterAddrFirstname(user.firstname)
+    enterAddrLastname(user.lastname)
+    enterAddress(user.address)
+    enterMobile(user.mobile)
+    enterAlias(user.addrAlias)
   }
 
   def selectTitle(title: Title): Unit = {
@@ -26,9 +31,9 @@ object RegistrationPage extends RegBasePage {
     else click on id("id_gender2")
   }
 
-  def enterFirstName(fn: String): Unit = firstname.sendKeys(fn)
+  def enterFirstname(fn: String): Unit = firstname.sendKeys(fn)
 
-  def enterSurname(sn: String): Unit = surname.sendKeys(sn)
+  def enterLastname(ln: String): Unit = lastname.sendKeys(ln)
 
   def enterEmail(email: String): Unit = {
     emailField.clear()
@@ -38,11 +43,39 @@ object RegistrationPage extends RegBasePage {
   def enterPassword(pw: String): Unit = password.sendKeys(pw)
 
   def selectDoB(dob: String): Unit = {
-    val date: List[String] = dob.split('-').toList
+    val date: Array[String] = dob.split('-')
     val fields: List[String] = "years" :: "months" :: "days" :: Nil
     val dateFieldsMap: Map[String, String] = fields zip date toMap
 
-    //    .toInt.toString will strip out any leading zeroes
+//    .toInt.toString will strip out any leading zeroes
     dateFieldsMap.foreach { case (field, num) => singleSel(field).value = num.toInt.toString }
   }
+
+  def enterAddrFirstname(fn: String): Unit = {
+    addrFirstname.clear()
+    addrFirstname.sendKeys(fn)
+  }
+
+  def enterAddrLastname(ln: String): Unit = {
+    addrLastname.clear()
+    addrLastname.sendKeys(ln)
+  }
+
+  def enterAddress(addr: List[String]): Unit = {
+    println(addr.head, addr(1), addr(2), addr(3))
+
+    addrLine1.sendKeys(addr.head)
+    addrCity.sendKeys(addr(1))
+    addrState.value = addr(2)
+    addrZip.sendKeys(addr(3))
+  }
+
+  def enterMobile(phone: String): Unit = mobile.sendKeys(phone)
+
+  def enterAlias(name: String): Unit = {
+    alias.clear()
+    alias.sendKeys(name)
+  }
+
+  def clickRegister(): Unit = click on id("submitAccount")
 }
