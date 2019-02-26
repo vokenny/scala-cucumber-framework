@@ -9,6 +9,6 @@ import org.junit.runner.RunWith
   features = Array("src/test/resources/features"),
   glue = Array("projectName.stepdefs"),
   plugin = Array("pretty", "html:target/cucumber", "json:target/cucumber.json"),
-  tags = Array("~@api", "~@wip", "~@ignore")
+  tags = Array("@api", "~@wip", "~@ignore")
 )
-class Runner {}
+class ApiRunner {}

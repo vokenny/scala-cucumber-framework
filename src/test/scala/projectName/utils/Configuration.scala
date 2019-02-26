@@ -1,7 +1,9 @@
 package projectName.utils
 
 case class TestConfig(googleUrl: String,
-                      automationUrl: String
+                      automationUrl: String,
+                      catFactUrl: String,
+                      pokéApiUrl: String
                      )
 
 object Configuration {
@@ -11,19 +13,25 @@ object Configuration {
     case "local" =>
       TestConfig(
         googleUrl     = "https://www.google.com",
-        automationUrl = "http://automationpractice.com"
+        automationUrl = "http://automationpractice.com",
+        catFactUrl    = "https://cat-fact.herokuapp.com",
+        pokéApiUrl    = "https://pokeapi.co/api/v2/pokemon"
       )
 
     case "dev" =>
       TestConfig(
         googleUrl     = "https://www.google.com",
-        automationUrl = "http://automationpractice.com"
+        automationUrl = "http://automationpractice.com",
+        catFactUrl    = "https://cat-fact.herokuapp.com",
+        pokéApiUrl    = "https://pokeapi.co/api/v2/pokemon"
       )
 
     case "qa" =>
       TestConfig(
         googleUrl     = "https://www.google.com",
-        automationUrl = "http://automationpractice.com"
+        automationUrl = "http://automationpractice.com",
+        catFactUrl    = "https://cat-fact.herokuapp.com",
+        pokéApiUrl    = "https://pokeapi.co/api/v2/pokemon"
       )
 
     case _ => throw new IllegalArgumentException(s"Environment '$environment' not known")

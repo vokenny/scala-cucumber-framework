@@ -7,9 +7,13 @@ object ScenarioVariables {
 
   var user: TestCust = TestCust.person
   var storedResponse: StoredResponse = new StoredResponse("", "")
+  var idCatFact: String = ""
+  var pokémon: String = ""
 
   def reset(): Unit = {
     user = TestCust.person
     storedResponse = new StoredResponse("", "")
+    idCatFact = ""
+    pokémon = ""
   }
 }

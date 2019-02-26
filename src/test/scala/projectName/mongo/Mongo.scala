@@ -18,5 +18,5 @@ object Mongo {
 
   def deleteRecord(token: String): Unit = collection.deleteOne(equal("_id", token)).printResults()
 
-  def dropDatabase(): Unit = database.drop().printResults()
+  def dropDatabase(): SingleObservable[Completed] = database.drop()
 }

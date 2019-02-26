@@ -14,12 +14,12 @@ trait Steps extends ScalaDsl with EN with Matchers {
 
   import Steps._
 
-  //  Tries to get the value of [[_driver]] and [[_wait]] - will throw an exception if they don't exist
+//  Tries to get the value of [[_driver]] and [[_wait]] - will throw an exception if they don't exist
   implicit def getDriverUnsafe: WebDriver = _driver.getOrElse(sys.error("Driver does not exist"))
   implicit def getWaitUnsafe: WebDriverWait = _wait.getOrElse(sys.error("WebDriverWait object does not exist"))
 
 
-  //  create a new driver for each scenario
+//  create a new driver for each scenario
   Before { _ ⇒
     if (_driver.isEmpty) {
       _driver = Some(Driver.initialiseDriver())
@@ -36,10 +36,7 @@ trait Steps extends ScalaDsl with EN with Matchers {
 
 
   After { _ ⇒
-    ScenarioVariables.reset()
-    Mongo.dropDatabase()
-
-    //    Disable the following line to prevent automatic shutdown
+//    Disable the following line to prevent automatic shutdown
     _driver.foreach(_.quit())
     _driver = None
   }

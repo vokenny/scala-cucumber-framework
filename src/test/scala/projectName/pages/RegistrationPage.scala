@@ -63,8 +63,6 @@ object RegistrationPage extends RegBasePage {
   }
 
   def enterAddress(addr: List[String]): Unit = {
-    println(addr.head, addr(1), addr(2), addr(3))
-
     addrLine1.sendKeys(addr.head)
     addrCity.sendKeys(addr(1))
     addrState.value = addr(2)
