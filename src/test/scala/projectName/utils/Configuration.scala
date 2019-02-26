@@ -1,7 +1,6 @@
 package projectName.utils
 
-case class TestConfig(googleUrl: String,
-                      automationUrl: String,
+case class TestConfig(automationUrl: String,
                       catFactUrl: String,
                       pokéApiUrl: String
                      )
@@ -12,7 +11,6 @@ object Configuration {
   lazy val testConfig: TestConfig = environment match {
     case "local" =>
       TestConfig(
-        googleUrl     = "https://www.google.com",
         automationUrl = "http://automationpractice.com",
         catFactUrl    = "https://cat-fact.herokuapp.com",
         pokéApiUrl    = "https://pokeapi.co/api/v2/pokemon"
@@ -20,7 +18,6 @@ object Configuration {
 
     case "dev" =>
       TestConfig(
-        googleUrl     = "https://www.google.com",
         automationUrl = "http://automationpractice.com",
         catFactUrl    = "https://cat-fact.herokuapp.com",
         pokéApiUrl    = "https://pokeapi.co/api/v2/pokemon"
@@ -28,7 +25,6 @@ object Configuration {
 
     case "qa" =>
       TestConfig(
-        googleUrl     = "https://www.google.com",
         automationUrl = "http://automationpractice.com",
         catFactUrl    = "https://cat-fact.herokuapp.com",
         pokéApiUrl    = "https://pokeapi.co/api/v2/pokemon"
