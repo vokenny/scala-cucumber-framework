@@ -16,5 +16,6 @@ object ScenarioVariables {
     storedResponse = new StoredResponse("", "")
     idCatFact = ""
     pokémon = ""
+    englishText = ""
   }
 }
