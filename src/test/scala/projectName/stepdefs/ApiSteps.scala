@@ -1,6 +1,6 @@
 package projectName.stepdefs
 
-import projectName.api.{CatFacts, PokéApi}
+import projectName.api.{CatFacts, PirateTranslator, PokéApi}
 import projectName.testdata.ScenarioVariables._
 import projectName.testdata.StoredResponse
 
@@ -10,6 +10,7 @@ class ApiSteps extends Steps {
     val response = (request, endpoint) match {
       case ("GET", "Cat Facts") => CatFacts.getCatFactById(idCatFact)
       case ("GET", "PokéApi")   => PokéApi.getPokémon(pokémon)
+      case ("POST", "Pirate")   => PirateTranslator.postTranslation(englishText)
     }
 
     storedResponse = new StoredResponse(response.statusLine, response.body)
