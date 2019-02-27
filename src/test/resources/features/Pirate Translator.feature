@@ -2,6 +2,7 @@
 Feature: Pirate Translator API
 
 #  Ratelimited to 60 requests/day, at 5 requests/hour
+#  Remove the @ignore tag if you want to run these scenarios
 
   Scenario Outline: Valid POST request for English to Pirate translations receive a 200 OK response
     Given the English text is "<English>"
