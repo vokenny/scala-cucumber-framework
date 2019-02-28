@@ -4,8 +4,8 @@ import projectName.testdata.ScenarioVariables._
 
 class PokéSteps extends Steps {
 
-  Given("""^we want Pokémon information for (.*)$""") { poketMonster: String =>
-    pokémon = poketMonster
+  Given("""^we want Pokémon information for (.*)$""") { pocketMonster: String =>
+    pokémon = pocketMonster
   }
 
   Then("""^the response body should be the (.*) profile$""") { expectedPokéProfile: String =>
