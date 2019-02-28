@@ -13,3 +13,4 @@ dist
 /.html
 /.settings
 *.iws
+*.DS_Store
