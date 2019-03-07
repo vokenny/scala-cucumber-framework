@@ -7,7 +7,6 @@ import org.openqa.selenium.WebDriver
 object Driver {
 
   private val systemProperties = System.getProperties
-  private val isJsEnabled: Boolean = true
 
   def initialiseDriver(): WebDriver = {
     systemProperties.getProperty("browser", "chrome") match {
