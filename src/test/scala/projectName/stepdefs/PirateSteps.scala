@@ -8,9 +8,9 @@ class PirateSteps extends Steps {
     englishText = english
   }
 
-  Then("""^the Pirate translation should be "(.*)"$""") { expectedPirateTranslation: String =>
+  Then("""^the Pirate translation should be (.*)$""") { expectedPirateTranslation: String =>
     val pirateTranslation: String = (storedResponse.body \ "contents" \ "translated").get.toString()
 
-    pirateTranslation should be ('\"' + expectedPirateTranslation + '\"')
+    pirateTranslation should be (expectedPirateTranslation)
   }
 }

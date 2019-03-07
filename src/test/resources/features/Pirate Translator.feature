@@ -8,9 +8,9 @@ Feature: Pirate Translator API
     Given the English text is "<English>"
     When the POST request to the Pirate endpoint is made
     Then the response status should be 200 OK
-    And the Pirate translation should be "<Pirate>"
+    And the Pirate translation should be <Pirate>
 
     Examples:
-      | English                                         | Pirate                                                                             |
-      | This is my example of a POST call.              | This be me example o' a POST call.                                                 |
-      | Hello sir! my mother goes with me to the ocean. | Ahoy matey!  me dear ol' mum, bless her black soul goes with me t' th' briny deep. |
+      | English                            | Pirate                               |
+      | This is my example of a POST call. | "This be me example o' a POST call." |
+      | I have a parrot on my shoulder     | "I have a parrot on me shoulder"     |
