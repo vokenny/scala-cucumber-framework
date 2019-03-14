@@ -1,5 +1,7 @@
 package projectName.stepdefs
 
+import java.util.concurrent.TimeUnit
+
 import cucumber.api.scala.{EN, ScalaDsl}
 import org.openqa.selenium.support.ui.ExpectedConditions.{urlToBe, visibilityOfElementLocated}
 import projectName.utils.driver.Driver
@@ -50,6 +52,8 @@ trait Steps extends ScalaDsl with EN with Matchers {
   def waitForRedirect(url: String): Boolean = waitFor(urlToBe(url))
 
   def waitForPageToLoad(): WebElement = waitFor(visibilityOfElementLocated(By.tagName("body")))
+
+  def waitForMillisec(time: Int): Unit = TimeUnit.MILLISECONDS.sleep(time)
 }
 
 object Steps {
