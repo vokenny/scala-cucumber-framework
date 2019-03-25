@@ -10,9 +10,9 @@ object Mongo {
 // Connect to the default server localhost on port 27017
   val mongoClient: MongoClient = MongoClient()
 
-  val database: MongoDatabase = mongoClient.getDatabase("direct-debit-backend")
+  val database: MongoDatabase = mongoClient.getDatabase("database-name")
 
-  val collection: MongoCollection[Document] = database.getCollection("journey")
+  val collection: MongoCollection[Document] = database.getCollection("collection-name")
 
   def getRecord(token: String): String = collection.find(equal("_id", token)).toString
 

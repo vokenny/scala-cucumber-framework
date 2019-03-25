@@ -34,9 +34,9 @@ trait Steps extends ScalaDsl with EN with Matchers {
       _wait = Some(wdw)
     }
 
-    if (!setUp) {
+    if (isSetUp) {
       testSetUpTeardown()
-      setUp = true
+      isSetUp = false
     }
   }
 
@@ -46,9 +46,9 @@ trait Steps extends ScalaDsl with EN with Matchers {
     _driver.foreach(_.quit())
     _driver = None
 
-    if (!teardown) {
+    if (!isSetUp) {
       testSetUpTeardown()
-      teardown = true
+      isSetUp = true
     }
   }
 
