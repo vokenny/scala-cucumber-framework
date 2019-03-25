@@ -12,7 +12,10 @@ object PirateTranslator extends Api with PirateTranslatorPayloads {
 
   def postTranslation(english: String): HttpResponse[String] = {
     val url: String = s"${testConfig.pirateUrl}/pirate"
-    val payload: String = TranslationBody(english)
+    val payload: String = english match {
+      case "Missing" => ""
+      case _  => TranslationBody(english)
+    }
 
     POST(url, payload)
   }

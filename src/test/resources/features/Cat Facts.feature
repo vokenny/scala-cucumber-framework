@@ -3,7 +3,7 @@ Feature: Cat Facts API
 
   Scenario Outline: Valid GET request with a specific ID receives a 200 OK response, and a specific cat fact in the response body
     Given the cat fact ID is <ID>
-    When the GET request to the Cat Facts endpoint is made
+    When the GET request is made to the Cat Facts endpoint
     Then the response status should be 200 OK
     And the response body should contain the fact: <Fact>
 
