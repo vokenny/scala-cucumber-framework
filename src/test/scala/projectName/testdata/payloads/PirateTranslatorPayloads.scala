@@ -2,7 +2,7 @@ package projectName.testdata.payloads
 
 trait PirateTranslatorPayloads {
 
-  object GetTranslationBody {
+  object TranslationBody {
     def apply(english: String): String = {
       s"""{
          |    "text": "$english"

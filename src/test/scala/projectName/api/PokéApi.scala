@@ -9,7 +9,7 @@ object PokéApi extends Api {
 //  See https://pokeapi.co/ for API Documentation
 
   def getPokémon(name: String): HttpResponse[String] = {
-    val url = s"${testConfig.pokéApiUrl}/${name.toLowerCase}"
+    val url: String = s"${testConfig.pokéApiUrl}/${name.toLowerCase}"
 
     GET(url)
   }

@@ -10,13 +10,13 @@ object Mongo {
 // Connect to the default server localhost on port 27017
   val mongoClient: MongoClient = MongoClient()
 
-  val database: MongoDatabase = mongoClient.getDatabase("projectName")
+  val database: MongoDatabase = mongoClient.getDatabase("direct-debit-backend")
 
-  val collection: MongoCollection[Document] = database.getCollection("collection-name")
+  val collection: MongoCollection[Document] = database.getCollection("journey")
 
   def getRecord(token: String): String = collection.find(equal("_id", token)).toString
 
   def deleteRecord(token: String): Unit = collection.deleteOne(equal("_id", token)).printResults()
 
-  def dropDatabase(): SingleObservable[Completed] = database.drop()
+  def dropDatabase(): Unit = database.drop().printResults()
 }

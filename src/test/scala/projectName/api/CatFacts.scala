@@ -9,7 +9,7 @@ object CatFacts extends Api {
 //  See https://alexwohlbruck.github.io/cat-facts/docs/ for API Documentation
 
   def getCatFactById(id: String): HttpResponse[String] = {
-    val url = s"${testConfig.catFactUrl}/facts/$id"
+    val url: String = s"${testConfig.catFactUrl}/facts/$id"
 
     GET(url)
   }

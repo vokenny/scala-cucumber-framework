@@ -11,8 +11,8 @@ object PirateTranslator extends Api with PirateTranslatorPayloads {
 //  Ratelimited to 60 requests/day, at 5 requests/hour
 
   def postTranslation(english: String): HttpResponse[String] = {
-    val url = s"${testConfig.pirateUrl}/pirate"
-    val payload = GetTranslationBody(english)
+    val url: String = s"${testConfig.pirateUrl}/pirate"
+    val payload: String = TranslationBody(english)
 
     POST(url, payload)
   }
