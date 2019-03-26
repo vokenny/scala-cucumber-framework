@@ -12,4 +12,12 @@ object ScenarioVariables {
   var idCatFact: String = ""
   var pokémon: String = ""
   var englishText: String = ""
+
+  def reset(): Unit = {
+    user = TestCust.person
+    storedResponse = new StoredResponse("", "")
+    idCatFact = ""
+    pokémon = ""
+    englishText = ""
+  }
 }

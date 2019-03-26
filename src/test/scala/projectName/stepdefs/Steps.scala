@@ -8,10 +8,9 @@ import projectName.utils.driver.Driver
 import org.openqa.selenium._
 import org.openqa.selenium.support.ui.{ExpectedCondition, WebDriverWait}
 import org.scalatest.Matchers
-import projectName.testdata.StoredResponse
+import projectName.testdata.ScenarioVariables
 import projectName.mongo.Mongo
 import projectName.testdata.ScenarioVariables._
-import projectName.testdata.models.TestCust
 
 
 trait Steps extends ScalaDsl with EN with Matchers {
@@ -35,7 +34,8 @@ trait Steps extends ScalaDsl with EN with Matchers {
     }
 
     if (testSetUp) {
-      testSetUpTeardown()
+      ScenarioVariables.reset()
+      Mongo.dropDatabase()
       testSetUp = false
     }
   }
@@ -60,19 +60,10 @@ trait Steps extends ScalaDsl with EN with Matchers {
     _driver = None
 
     if (!testSetUp) {
-      testSetUpTeardown()
+      ScenarioVariables.reset()
+      Mongo.dropDatabase()
       testSetUp = true
     }
-  }
-
-  def testSetUpTeardown(): Unit = {
-    user = TestCust.person
-    storedResponse = new StoredResponse("", "")
-    idCatFact = ""
-    pokémon = ""
-    englishText = ""
-
-    Mongo.dropDatabase()
   }
 
   def waitFor[T](condition: ExpectedCondition[T]): T = {
