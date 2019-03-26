@@ -25,7 +25,7 @@ object Chromedriver {
     new RemoteWebDriver(new URL(s"http://localhost:4444/wd/hub"), options)
   }
 
-  private def chromeOptions(headless: Boolean = false): ChromeOptions = {
+  private def chromeOptions(headless: Boolean): ChromeOptions = {
     val options = new ChromeOptions()
 
     options.addArguments("test-type")

@@ -5,7 +5,7 @@ import java.util.concurrent.TimeUnit
 import cucumber.api.scala.{EN, ScalaDsl}
 import org.openqa.selenium.support.ui.ExpectedConditions.{urlToBe, visibilityOfElementLocated}
 import projectName.utils.driver.Driver
-import org.openqa.selenium.{By, WebDriver, WebElement}
+import org.openqa.selenium._
 import org.openqa.selenium.support.ui.{ExpectedCondition, WebDriverWait}
 import org.scalatest.Matchers
 import projectName.testdata.StoredResponse
@@ -34,21 +34,34 @@ trait Steps extends ScalaDsl with EN with Matchers {
       _wait = Some(wdw)
     }
 
-    if (isSetUp) {
+    if (testSetUp) {
       testSetUpTeardown()
-      isSetUp = false
+      testSetUp = false
     }
   }
 
 
-  After { _ =>
+  After { scenario =>
+    if (scenario.isFailed) {
+      _driver.foreach{
+        case driver: TakesScreenshot =>
+          try {
+            val screenshot = driver.getScreenshotAs(OutputType.BYTES)
+            scenario.embed(screenshot, "image/png")
+          } catch {
+            case e: WebDriverException => System.err.println(s"Error creating screenshot: ${e.getMessage}")
+          }
+        case _ => println("Screenshot will not be taken")
+      }
+    }
+
 //    Disable the following line to prevent automatic shutdown
     _driver.foreach(_.quit())
     _driver = None
 
-    if (!isSetUp) {
+    if (!testSetUp) {
       testSetUpTeardown()
-      isSetUp = true
+      testSetUp = true
     }
   }
 
