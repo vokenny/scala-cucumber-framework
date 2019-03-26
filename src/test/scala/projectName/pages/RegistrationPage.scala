@@ -10,8 +10,8 @@ object RegistrationPage extends RegBasePage {
 
   val url: String = s"${testConfig.automationUrl}/index.php?controller=authentication&back=my-account#account-creation"
 
-  def expectedPageTitle: String = "Login - My Store"
-  def expectedPageHeader: String = "CREATE AN ACCOUNT"
+  val expectedPageTitle: String = "Login - My Store"
+  val expectedPageHeader: String = "CREATE AN ACCOUNT"
 
   def enterValidDetails(user: TestCust): Unit = {
     selectTitle(user.title)

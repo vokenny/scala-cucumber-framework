@@ -9,8 +9,8 @@ trait BasePage extends org.scalatest.selenium.Page with WebBrowser with Matchers
 
   val url: String
 
-  def expectedPageTitle: String
-  def expectedPageHeader: String
+  val expectedPageTitle: String
+  val expectedPageHeader: String
 
   def currentPageTitle: String   = pageTitle
   def currentPageHeader: String  = cssSelector("h1").webElement.getText

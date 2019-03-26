@@ -7,6 +7,6 @@ object HomePage extends BasePage {
 
   val url: String = s"${testConfig.automationUrl}/index.php?"
 
-  def expectedPageTitle: String = "My Store"
-  def expectedPageHeader: String = "Automation Practice Website"
+  val expectedPageTitle: String = "My Store"
+  val expectedPageHeader: String = "Automation Practice Website"
 }

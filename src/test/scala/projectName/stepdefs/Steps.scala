@@ -75,6 +75,7 @@ trait Steps extends ScalaDsl with EN with Matchers {
 
   def waitForPageToLoad(): WebElement = waitFor(visibilityOfElementLocated(By.tagName("body")))
 
+//  Thread.sleep - if you're desperate
   def waitForMillisec(time: Int): Unit = TimeUnit.MILLISECONDS.sleep(time)
 }
 

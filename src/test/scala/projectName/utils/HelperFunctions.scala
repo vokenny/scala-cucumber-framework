@@ -8,8 +8,8 @@ object HelperFunctions extends BasePage {
 
   val url = ""
 
-  def expectedPageTitle = ""
-  def expectedPageHeader = ""
+  val expectedPageTitle = ""
+  val expectedPageHeader = ""
 
   override def shouldBeLoaded(): Unit = {}
 

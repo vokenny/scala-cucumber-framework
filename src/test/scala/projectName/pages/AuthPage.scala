@@ -7,8 +7,8 @@ object AuthPage extends BasePage {
 
   val url: String = s"${testConfig.automationUrl}/index.php?controller=authentication&back=my-account"
 
-  def expectedPageTitle: String = "Login - My Store"
-  def expectedPageHeader: String = "AUTHENTICATION"
+  val expectedPageTitle: String = "Login - My Store"
+  val expectedPageHeader: String = "AUTHENTICATION"
 
   def enterEmail(email: String): Unit = id("email_create").webElement.sendKeys(email)
 
