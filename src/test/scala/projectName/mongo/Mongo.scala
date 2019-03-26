@@ -8,6 +8,8 @@ import projectName.mongo.MongoHelper._
 object Mongo {
 
 // Connect to the default server localhost on port 27017
+// Dropping Mongo like this will only work locally, unless you have config for other MongoClients.
+// Arguably easier to hit a test-only endpoint in all environments, so no config needed.
   val mongoClient: MongoClient = MongoClient()
 
   val database: MongoDatabase = mongoClient.getDatabase("database-name")
