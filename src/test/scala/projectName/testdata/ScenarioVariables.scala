@@ -5,7 +5,7 @@ import projectName.testdata.models.TestCust
 
 object ScenarioVariables {
 
-  var testSetUp: Boolean = false
+  var testSetUp: Boolean = true
 
   var user: TestCust = TestCust.person
   var storedResponse: StoredResponse = new StoredResponse("", "")
