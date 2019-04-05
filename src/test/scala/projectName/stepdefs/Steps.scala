@@ -10,7 +10,7 @@ import org.openqa.selenium.support.ui.{ExpectedCondition, WebDriverWait}
 import org.scalatest.Matchers
 import projectName.testdata.ScenarioVariables
 import projectName.mongo.Mongo
-import projectName.testdata.ScenarioVariables._
+import projectName.testdata.ScenarioVariables.testSetUp
 
 
 trait Steps extends ScalaDsl with EN with Matchers {
