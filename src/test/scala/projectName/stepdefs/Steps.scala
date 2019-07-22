@@ -34,6 +34,7 @@ trait Steps extends ScalaDsl with EN with Matchers {
     }
 
     if (testSetUp) {
+      println("Test Set Up")
       ScenarioVariables.reset()
       Mongo.dropDatabase()
       testSetUp = false
@@ -60,6 +61,7 @@ trait Steps extends ScalaDsl with EN with Matchers {
     _driver = None
 
     if (!testSetUp) {
+      println("Test Teardown")
       ScenarioVariables.reset()
       Mongo.dropDatabase()
       testSetUp = true

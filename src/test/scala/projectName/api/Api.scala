@@ -7,31 +7,41 @@ trait Api {
 
   val jsonHeader: Map[String, String] = Map("Content-Type" -> "application/json")
 
-  def GET(url: String): HttpResponse[String] = {
+  def authHeader(token: String): Map[String, String] = Map("Authorization" -> token)
+
+  def commonHeaders(token: String): Map[String, String] = Map("Content-Type" -> "application/json", "Authorization" -> token)
+
+  def sessionIdHeader: Map[String, String] = Map("X-session-id" -> getSessionId)
+
+  def getSessionId: String = "Placeholder"
+
+  def GET(url: String, header: Map[String, String]*): HttpResponse[String] = {
     Http(url)
+      .headers(header.flatten)
       .option(HttpOptions.readTimeout(20000))
       .asString
   }
 
-  def POST(url: String, payload: String): HttpResponse[String] = {
+  def POST(url: String, payload: String, header: Map[String, String]*): HttpResponse[String] = {
     Http(url)
       .postData(payload)
-      .headers(jsonHeader)
+      .headers(header.flatten)
       .option(HttpOptions.readTimeout(20000))
       .asString
   }
 
-  def PUT(url: String, payload: String): HttpResponse[String] = {
+  def PUT(url: String, payload: String, header: Map[String, String]*): HttpResponse[String] = {
     Http(url)
       .put(payload)
-      .headers(jsonHeader)
+      .headers(header.flatten)
       .option(HttpOptions.readTimeout(20000))
       .asString
   }
 
-  def DELETE(url: String): HttpResponse[String] = {
+  def DELETE(url: String, header: Map[String, String]*): HttpResponse[String] = {
     Http(url)
       .method("DELETE")
+      .headers(header.flatten)
       .option(HttpOptions.readTimeout(20000))
       .asString
   }

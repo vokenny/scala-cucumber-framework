@@ -2,8 +2,7 @@ package projectName.testdata
 
 import play.api.libs.json.{JsValue, Json}
 
-class StoredResponse(statusLine: String, responseBody: String) {
+case class StoredResponse(code: Int, responseBody: String) {
 
-  lazy val status: String = statusLine
   lazy val body: JsValue = Json.parse(responseBody)
 }

@@ -17,6 +17,6 @@ object PirateTranslator extends Api with PirateTranslatorPayloads {
       case _  => TranslationBody(english)
     }
 
-    POST(url, payload)
+    POST(url, payload, jsonHeader)
   }
 }
