@@ -1,7 +1,7 @@
 @api @ignore
 Feature: Pirate Translator API
 
-  https://funtranslations.com/api
+  https://funtranslations.com/api/pirate
   Ratelimited to 60 requests/day, at 5 requests/hour
   Remove the @ignore tag if you want to run these scenarios
 

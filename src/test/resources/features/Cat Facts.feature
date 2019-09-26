@@ -2,6 +2,7 @@
 Feature: Cat Facts API
 
   https://cat-fact.herokuapp.com/
+  https://alexwohlbruck.github.io/cat-facts/docs/
 
   Scenario Outline: Valid GET request with a specific ID receives a 200 OK response, and a specific cat fact in the response body
     Given the cat fact ID is <ID>
