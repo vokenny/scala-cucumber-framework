@@ -12,9 +12,9 @@ Feature: Pirate Translator API
     And the Pirate translation should be <Pirate>
 
     Examples:
-      | English                            | Pirate                               |
-      | This is my example of a POST call. | "This be me example o' a POST call." |
-      | I have a parrot on my shoulder     | "I have a parrot on me shoulder"     |
+      | English                            | Pirate                             |
+      | This is my example of a POST call. | This be me example o' a POST call. |
+      | I have a parrot on my shoulder     | I have a parrot on me shoulder     |
 
   Scenario: Invalid POST request with missing payload receives a 400 Bad Request
     When the POST request with missing payload is made to the Pirate endpoint

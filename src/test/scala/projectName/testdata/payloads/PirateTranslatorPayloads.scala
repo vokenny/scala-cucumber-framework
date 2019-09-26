@@ -2,8 +2,8 @@ package projectName.testdata.payloads
 
 trait PirateTranslatorPayloads {
 
-  object TranslationBody {
-    def apply(english: String): String = {
+  case class TranslationBody(english: String) {
+    val jsonString: String = {
       s"""{
          |    "text": "$english"
          |}

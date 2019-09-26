@@ -11,6 +11,6 @@ Feature: Poké API
 
     Examples:
       | Pokémon   |
-      | Pikachu   |
-      | Lapras    |
-      | Cyndaquil |
+      | pikachu   |
+      | lapras    |
+      | cyndaquil |

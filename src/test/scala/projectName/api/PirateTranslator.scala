@@ -14,7 +14,7 @@ object PirateTranslator extends Api with PirateTranslatorPayloads {
     val url: String = s"${testConfig.pirateUrl}/pirate"
     val payload: String = english match {
       case "Missing" => ""
-      case _  => TranslationBody(english)
+      case _  => TranslationBody(english).jsonString
     }
 
     POST(url, payload, jsonHeader)

@@ -10,7 +10,8 @@ class PokéSteps extends Steps {
 
   Then("""^the response body should be the (.*) profile$""") { expectedPokéProfile: String =>
     val pokéProfile: String = (storedResponse.body \ "species" \ "name").get.toString()
+      .replaceAll("\"", "")
 
-    pokéProfile should be ('\"' + expectedPokéProfile.toLowerCase + '\"')
+    pokéProfile should be (expectedPokéProfile)
   }
 }

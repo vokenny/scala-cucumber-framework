@@ -42,20 +42,7 @@ trait Steps extends ScalaDsl with EN with Matchers {
   }
 
 
-  After { scenario =>
-    if (scenario.isFailed) {
-      _driver.foreach{
-        case driver: TakesScreenshot =>
-          try {
-            val screenshot = driver.getScreenshotAs(OutputType.BYTES)
-            scenario.embed(screenshot, "image/png")
-          } catch {
-            case e: WebDriverException => System.err.println(s"Error creating screenshot: ${e.getMessage}")
-          }
-        case _ => println("Screenshot will not be taken")
-      }
-    }
-
+  After { _ =>
 //    Disable the following line to prevent automatic shutdown
     _driver.foreach(_.quit())
     _driver = None

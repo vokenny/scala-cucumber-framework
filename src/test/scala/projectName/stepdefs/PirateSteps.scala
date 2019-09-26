@@ -10,6 +10,7 @@ class PirateSteps extends Steps {
 
   Then("""^the Pirate translation should be (.*)$""") { expectedPirateTranslation: String =>
     val pirateTranslation: String = (storedResponse.body \ "contents" \ "translated").get.toString()
+      .replaceAll("\"", "")
 
     pirateTranslation should be (expectedPirateTranslation)
   }
