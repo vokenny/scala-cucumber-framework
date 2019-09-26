@@ -1,6 +1,7 @@
 package projectName.mongo
 
 import org.mongodb.scala._
+import org.mongodb.scala.bson.BsonDocument
 import org.mongodb.scala.model.Filters._
 import projectName.mongo.MongoHelper._
 
@@ -16,9 +17,21 @@ object Mongo {
 
   val collection: MongoCollection[Document] = database.getCollection("collection-name")
 
-  def getRecord(token: String): String = collection.find(equal("_id", token)).toString
+  def insertVerifiedEmail(email: String): Unit = {
+    database
+      .getCollection("emailCollection")
+      .insertOne(BsonDocument(
+        "email" -> email,
+        "isVerified" -> true))
+      .printResults()
+  }
 
-  def deleteRecord(token: String): Unit = collection.deleteOne(equal("_id", token)).printResults()
+  def findVerifiedEmail(email: String): String = {
+    database
+      .getCollection("emailCollection")
+      .find(BsonDocument("email" -> email))
+      .headResult().toJson()
+  }
 
   def dropDatabase(): Unit = database.drop().printResults()
 }
