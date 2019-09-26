@@ -1,6 +1,8 @@
 @api
 Feature: Cat Facts API
 
+  https://cat-fact.herokuapp.com/
+
   Scenario Outline: Valid GET request with a specific ID receives a 200 OK response, and a specific cat fact in the response body
     Given the cat fact ID is <ID>
     When the GET request is made to the Cat Facts endpoint

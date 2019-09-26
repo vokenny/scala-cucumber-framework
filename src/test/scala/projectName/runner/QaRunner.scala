@@ -1,7 +1,6 @@
 package projectName.runner
 
-import cucumber.api.CucumberOptions
-import cucumber.api.junit.Cucumber
+import io.cucumber.junit.{Cucumber, CucumberOptions}
 import org.junit.runner.RunWith
 
 @RunWith(classOf[Cucumber])

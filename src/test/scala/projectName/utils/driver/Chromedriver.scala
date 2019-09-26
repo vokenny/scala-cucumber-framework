@@ -14,7 +14,7 @@ object Chromedriver {
   }
 
   def createRemoteZapChrome(): WebDriver = {
-    var options = chromeOptions(false)
+    val options = chromeOptions(false)
 
     options.addArguments("--allow-insecure-localhost")
     options.addArguments("--ignore-certificate-error")

@@ -1,5 +1,7 @@
 Feature: Automation Practice: User Registration
 
+  Testing the registration feature on automationpractice.com
+
   Background:
     Given the User is a New customer
     And the User navigates to the Home page
