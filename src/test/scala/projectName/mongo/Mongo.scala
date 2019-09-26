@@ -17,6 +17,12 @@ object Mongo {
 
   val collection: MongoCollection[Document] = database.getCollection("collection-name")
 
+  def findRecGreaterThan(x: Int): String = {
+    collection
+      .find(gte("Number", x))
+      .headResult().toJson()
+  }
+
   def insertVerifiedEmail(email: String): Unit = {
     database
       .getCollection("emailCollection")
