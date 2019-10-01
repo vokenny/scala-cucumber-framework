@@ -1,6 +1,7 @@
 package projectName.stepdefs
 
 import projectName.testdata.ScenarioVariables.{idCatFact, storedResponse}
+import projectName.testdata.models.CatFact.AbridgedCatFact
 
 class CatFactSteps extends Steps {
 
@@ -9,9 +10,9 @@ class CatFactSteps extends Steps {
   }
 
   Then("""^the response body should contain the fact: (.*)$""") { expectedCatFact: String =>
-    val catFact: String = (storedResponse.body \ "text").get.toString()
-      .replaceAll("\"", "")
+    val catFactResponse: AbridgedCatFact = AbridgedCatFact.reads(storedResponse.body)
 
-    catFact should be (expectedCatFact)
+    catFactResponse._id should be (idCatFact)
+    catFactResponse.text should be (expectedCatFact)
   }
 }

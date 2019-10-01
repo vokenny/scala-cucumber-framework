@@ -7,22 +7,31 @@ import scalaj.http.HttpResponse
 
 class ApiSteps extends Steps {
 
-  When("""^the (GET|POST|PUT|DELETE) request is made to the (.*) endpoint$""") { (request: String, endpoint: String) =>
-    val response: HttpResponse[String] = (request, endpoint) match {
-      case ("GET", "Cat Facts") => CatFacts.getCatFactById(idCatFact)
-      case ("GET", "PokéApi")   => PokéApi.getPokémon(pokémon)
-      case ("POST", "Pirate")   => PirateTranslator.postTranslation(englishText)
+  When("""^the GET request is made to the Cat Facts endpoint$""") { () =>
+    storedResponse = CatFacts.getCatFactById(idCatFact) match {
+      case HttpResponse(body, code, _) => StoredResponse(code, body)
+      case _ => fail("Did not receive a HttpResponse")
     }
-
-    storedResponse = StoredResponse(response.code, response.body)
+  }
+  When("""^the GET request is made to the PokéApi endpoint$""") { () =>
+    storedResponse = PokéApi.getPokémon(pokémon) match {
+      case HttpResponse(body, code, _) => StoredResponse(code, body)
+      case _ => fail("Did not receive a HttpResponse")
+    }
   }
 
-  When("""^the (POST|PUT) request with missing payload is made to the (.*) endpoint$""") { (request: String, endpoint: String) =>
-    val response = (request, endpoint) match {
-      case ("POST", "Pirate")   => PirateTranslator.postTranslation("Missing")
+  When("""^the POST request is made to the Pirate endpoint$""") { () =>
+    storedResponse = PirateTranslator.postTranslation(englishText) match {
+      case HttpResponse(body, code, _) => StoredResponse(code, body)
+      case _ => fail("Did not receive a HttpResponse")
     }
+  }
 
-    storedResponse = StoredResponse(response.code, response.body)
+  When("""^the POST request with missing payload is made to the Pirate endpoint$""") { (request: String, endpoint: String) =>
+    storedResponse = PirateTranslator.postTranslation("Missing") match {
+      case HttpResponse(body, code, _) => StoredResponse(code, body)
+      case _ => fail("Did not receive a HttpResponse")
+    }
   }
 
   Then("""^the response code should be (.*)$""") { expectedStatus: String =>

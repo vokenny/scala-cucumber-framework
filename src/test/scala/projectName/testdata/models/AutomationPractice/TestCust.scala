@@ -1,7 +1,7 @@
-package projectName.testdata.models
+package projectName.testdata.models.AutomationPractice
 
+import projectName.testdata.models.AutomationPractice.Title.Title
 import projectName.utils.Configuration.environment
-import projectName.testdata.models.Title.Title
 
 case class TestCust(title: Title,
                     firstname: String,

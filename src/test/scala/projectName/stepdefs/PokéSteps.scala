@@ -1,6 +1,7 @@
 package projectName.stepdefs
 
 import projectName.testdata.ScenarioVariables._
+import projectName.testdata.models.PokéApi.AbridgedPokéProfile
 
 class PokéSteps extends Steps {
 
@@ -8,10 +9,10 @@ class PokéSteps extends Steps {
     pokémon = pocketMonster
   }
 
-  Then("""^the response body should be the (.*) profile$""") { expectedPokéProfile: String =>
-    val pokéProfile: String = (storedResponse.body \ "species" \ "name").get.toString()
-      .replaceAll("\"", "")
+  Then("""^the response body should be the (.*) profile with ID number (.*)$""") { (expectedPokéProfile: String, id: Int) =>
+    val pokéProfile: AbridgedPokéProfile = AbridgedPokéProfile.reads(storedResponse.body)
 
-    pokéProfile should be (expectedPokéProfile)
+    pokéProfile.id should be (id)
+    pokéProfile.name should be (expectedPokéProfile)
   }
 }

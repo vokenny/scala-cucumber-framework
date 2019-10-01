@@ -2,7 +2,7 @@ package projectName.stepdefs
 
 import projectName.pages._
 import projectName.testdata.ScenarioVariables._
-import projectName.testdata.models.TestCust
+import projectName.testdata.models.AutomationPractice.TestCust
 import projectName.utils.HelperFunctions
 
 class MainSteps extends Steps {

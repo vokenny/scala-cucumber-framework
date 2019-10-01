@@ -1,6 +1,6 @@
 package projectName.testdata
 
-import projectName.testdata.models.TestCust
+import projectName.testdata.models.AutomationPractice.TestCust
 
 
 object ScenarioVariables {

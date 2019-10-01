@@ -1,7 +1,6 @@
-package projectName.testdata.models
+package projectName.testdata.models.AutomationPractice
 
 import org.joda.time.DateTime
-
 
 object DateOfBirth {
 

@@ -1,4 +1,4 @@
-package projectName.testdata.models
+package projectName.testdata.models.AutomationPractice
 
 import scala.util.Random
 
