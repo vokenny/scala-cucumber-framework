@@ -1,6 +1,7 @@
 package projectName.stepdefs
 
 import projectName.testdata.ScenarioVariables._
+import projectName.testdata.models.PirateTranslation.AbridgedPirateTranslation
 
 class PirateSteps extends Steps {
 
@@ -9,9 +10,9 @@ class PirateSteps extends Steps {
   }
 
   Then("""^the Pirate translation should be (.*)$""") { expectedPirateTranslation: String =>
-    val pirateTranslation: String = (storedResponse.body \ "contents" \ "translated").get.toString()
-      .replaceAll("\"", "")
+    val pirateResponse: AbridgedPirateTranslation = storedResponse.body.as[AbridgedPirateTranslation]
 
-    pirateTranslation should be (expectedPirateTranslation)
+    pirateResponse.original should be (englishText)
+    pirateResponse.translation should be (expectedPirateTranslation)
   }
 }
