@@ -10,7 +10,7 @@ class CatFactSteps extends Steps {
   }
 
   Then("""^the response body should contain the fact: (.*)$""") { expectedCatFact: String =>
-    val catFactResponse: AbridgedCatFact = AbridgedCatFact.reads(storedResponse.body)
+    val catFactResponse: AbridgedCatFact = storedResponse.body.as[AbridgedCatFact]
 
     catFactResponse._id should be (idCatFact)
     catFactResponse.text should be (expectedCatFact)

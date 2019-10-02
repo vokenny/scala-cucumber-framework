@@ -10,7 +10,7 @@ class PokéSteps extends Steps {
   }
 
   Then("""^the response body should be the (.*) profile with ID number (.*)$""") { (expectedPokéProfile: String, id: Int) =>
-    val pokéProfile: AbridgedPokéProfile = AbridgedPokéProfile.reads(storedResponse.body)
+    val pokéProfile: AbridgedPokéProfile = storedResponse.body.as[AbridgedPokéProfile]
 
     pokéProfile.id should be (id)
     pokéProfile.name should be (expectedPokéProfile)

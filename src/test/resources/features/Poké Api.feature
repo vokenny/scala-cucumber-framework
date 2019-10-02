@@ -3,6 +3,7 @@ Feature: Poké API
 
   https://pokeapi.co/
 
+  @wip
   Scenario Outline: Valid GET request for Pokémon information receives a 200 OK response
     Given we want Pokémon information for <Pokémon>
     When the GET request is made to the PokéApi endpoint
