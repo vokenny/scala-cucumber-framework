@@ -1,6 +1,7 @@
 package projectName.stepdefs
 
 import projectName.testdata.ScenarioVariables._
+import projectName.testdata.models.PokéApi.AbridgedPokéProfile
 
 class PokéSteps extends Steps {
 
@@ -14,10 +15,10 @@ class PokéSteps extends Steps {
   }
 
   Then("""^(.*) should have the (.*) (?:ability|abilities)$""") { (expectedPokéProfile: String, abilities: String) =>
+    val pokéProfile: AbridgedPokéProfile = storedResponse.body.as[AbridgedPokéProfile]
     val pokéAbilities: Seq[String] = pokéProfile.abilitiesSeq.map(_.ability.name)
-    val abilitiesSeq: Seq[String] = abilities.split(", ").toSeq
 
     pokéProfile.name should be (expectedPokéProfile)
-    abilitiesSeq.foreach(pokéAbilities should contain (_))
+    abilities.split(", ").foreach(pokéAbilities should contain (_))
   }
 }
