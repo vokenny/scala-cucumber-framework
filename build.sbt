@@ -13,7 +13,6 @@ libraryDependencies ++= Seq(
   "org.scalaj"              %% "scalaj-http"            % "2.4.2",
   "com.typesafe.play"       %% "play-test"              % "2.5.12",
   "io.cucumber"             %  "cucumber-junit"         % CucumberVersion,
-  "io.cucumber"             %  "cucumber-picocontainer" % CucumberVersion,
   "io.cucumber"             %% "cucumber-scala"         % CucumberVersion,
   "org.mongodb.scala"       %% "mongo-scala-driver"     % "2.7.0"
 )
