@@ -1,11 +1,8 @@
 package projectName.stepdefs
 
-import play.api.libs.json.Json
 import projectName.api.{CatFacts, PirateTranslator, PokéApi}
 import projectName.testdata.ScenarioVariables._
 import projectName.testdata.StoredResponse
-import projectName.testdata.models.CatFact.AbridgedCatFact
-import projectName.testdata.models.PokéApi.AbridgedPokéProfile
 import scalaj.http.HttpResponse
 
 class ApiSteps extends Steps {
