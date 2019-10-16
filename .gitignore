@@ -1,16 +1,24 @@
-logs
-project/target
-target
-lib_managed
-tmp
-.history
-dist
-.idea/
-.iml/
-/out
-/.classpath
-/.project
-/.html
-/.settings
+# intellij idea
+*.log
+*.iml
+*.ipr
 *.iws
-*.DS_Store
+.idea
+
+# sbt
+bin/
+project/
+target/
+build/
+
+# mac
+.DS_Store
+
+# other
+.history
+.scala_dependencies
+.cache
+.cache-main
+
+#general
+*.class
