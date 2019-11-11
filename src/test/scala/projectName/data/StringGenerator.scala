@@ -7,9 +7,7 @@ import scala.util.Random
 
 object StringGenerator extends App with Csv {
 
-  def generateString(): String = {
-    Random.alphanumeric.take(10).mkString
-  }
+  def generateString(): String = Random.alphanumeric.take(10).mkString
 
   def writeStringsToCsv(filePath: String, num: Int): Unit = {
     val bw: BufferedWriter = new BufferedWriter(new FileWriter(filePath))
