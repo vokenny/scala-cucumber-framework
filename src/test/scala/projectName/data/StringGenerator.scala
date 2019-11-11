@@ -26,7 +26,7 @@ object StringGenerator extends App with Csv {
     }
 
 
-    val stringList: List[String] = List.fill(num)(generateString)
+    val stringList: List[String] = List.fill(num)(generateString())
     writeStrings(stringList)
     // Alternatively, shorter but less performant code:
     //stringList.init.foreach(e => bw.write(e + ",\n"))
