@@ -22,3 +22,6 @@ build/
 
 #general
 *.class
+
+#project specific
+strings.csv
