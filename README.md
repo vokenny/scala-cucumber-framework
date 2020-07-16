@@ -1,6 +1,6 @@
 # scala-cucumber-framework
 
-This is an acceptance test suite using Scala, and Cucumber. Mongo Scala Driver and Scalaj Http have also been included for querying Mongo, and API testing respectively.
+This is a user acceptance test suite using Scala on the BDD Cucumber framework. [Mongo Scala Driver](https://mongodb.github.io/mongo-scala-driver/) and [Scalaj Http](https://github.com/scalaj/scalaj-http) have also been included for querying Mongo, and API testing respectively.
 
 ## Getting Started
 You will need up-to-date versions of Chrome and Firefox installed on your device along with their compatible drivers inside:
