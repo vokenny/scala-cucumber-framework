@@ -5,7 +5,7 @@ import projectName.utils.Configuration.testConfig
 import scalaj.http.HttpResponse
 
 
-object PirateTranslator extends Api with PirateTranslatorPayloads {
+object PirateTranslator extends RequestBuilder with PirateTranslatorPayloads {
 
 //  See https://funtranslations.com/api/pirate for API Documentation
 //  Ratelimited to 60 requests/day, at 5 requests/hour

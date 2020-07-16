@@ -3,7 +3,7 @@ package projectName.api
 import scalaj.http.{Http, HttpOptions, HttpResponse}
 
 
-trait Api {
+trait RequestBuilder {
 
   val jsonHeader: Map[String, String] = Map("Content-Type" -> "application/json")
 
@@ -11,14 +11,10 @@ trait Api {
 
   def commonHeaders(token: String): Map[String, String] = Map("Content-Type" -> "application/json", "Authorization" -> token)
 
-  def sessionIdHeader: Map[String, String] = Map("X-session-id" -> getSessionId)
-
-  def getSessionId: String = "Placeholder"
-
   def GET(url: String, header: Map[String, String]*): HttpResponse[String] = {
     Http(url)
       .headers(header.flatten)
-      .option(HttpOptions.readTimeout(20000))
+      .option(HttpOptions.readTimeout(10000))
       .asString
   }
 
@@ -26,7 +22,7 @@ trait Api {
     Http(url)
       .postData(payload)
       .headers(header.flatten)
-      .option(HttpOptions.readTimeout(20000))
+      .option(HttpOptions.readTimeout(10000))
       .asString
   }
 
@@ -34,7 +30,7 @@ trait Api {
     Http(url)
       .put(payload)
       .headers(header.flatten)
-      .option(HttpOptions.readTimeout(20000))
+      .option(HttpOptions.readTimeout(10000))
       .asString
   }
 
@@ -42,7 +38,7 @@ trait Api {
     Http(url)
       .method("DELETE")
       .headers(header.flatten)
-      .option(HttpOptions.readTimeout(20000))
+      .option(HttpOptions.readTimeout(10000))
       .asString
   }
 }

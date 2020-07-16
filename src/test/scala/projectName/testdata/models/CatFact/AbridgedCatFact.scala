@@ -13,9 +13,7 @@ object AbridgedCatFact {
       for {
         id <- (json \ "_id").validate[String]
         text <- (json \ "text").validate[String]
-      } yield {
-        AbridgedCatFact(id, text)
-      }
+      } yield AbridgedCatFact(id, text)
     }
   }
 }

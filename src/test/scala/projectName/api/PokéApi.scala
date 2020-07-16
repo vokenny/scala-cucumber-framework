@@ -4,7 +4,7 @@ import projectName.utils.Configuration.testConfig
 import scalaj.http.HttpResponse
 
 
-object PokéApi extends Api {
+object PokéApi extends RequestBuilder {
 
 //  See https://pokeapi.co/ for API Documentation
 

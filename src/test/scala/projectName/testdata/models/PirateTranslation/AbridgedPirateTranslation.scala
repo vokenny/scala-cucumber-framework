@@ -13,9 +13,7 @@ object AbridgedPirateTranslation {
       for {
         translation <- (json \ "contents" \ "translated").validate[String]
         original <- (json \ "contents" \ "text").validate[String]
-      } yield {
-        AbridgedPirateTranslation(translation, original)
-      }
+      } yield AbridgedPirateTranslation(translation, original)
     }
   }
 }
