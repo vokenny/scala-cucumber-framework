@@ -2,6 +2,7 @@ package projectName.stepdefs
 
 import java.util.concurrent.TimeUnit
 
+import com.typesafe.scalalogging.LazyLogging
 import cucumber.api.scala.{EN, ScalaDsl}
 import org.openqa.selenium.support.ui.ExpectedConditions.{urlToBe, visibilityOfElementLocated}
 import projectName.utils.driver.Driver
@@ -12,8 +13,7 @@ import projectName.testdata.ScenarioVariables
 import projectName.mongo.Mongo
 import projectName.testdata.ScenarioVariables.testSetUp
 
-// TODO: Adding Logger
-trait Steps extends ScalaDsl with EN with Matchers {
+trait Steps extends ScalaDsl with EN with Matchers with LazyLogging {
 
   import Steps._
 
@@ -34,7 +34,7 @@ trait Steps extends ScalaDsl with EN with Matchers {
     }
 
     if (testSetUp) {
-      println("Test Set Up")
+      logger.info("Test Set Up")
       ScenarioVariables.reset()
       Mongo.dropDatabase()
       testSetUp = false
@@ -43,12 +43,13 @@ trait Steps extends ScalaDsl with EN with Matchers {
 
 
   After { _ =>
-//    Disable the following line to prevent automatic shutdown
+    // TODO: Move shutdown to config
+    // Disable the following line to prevent automatic shutdown
     _driver.foreach(_.quit())
     _driver = None
 
     if (!testSetUp) {
-      println("Test Teardown")
+      logger.info("Test Teardown")
       ScenarioVariables.reset()
       Mongo.dropDatabase()
       testSetUp = true
@@ -64,7 +65,7 @@ trait Steps extends ScalaDsl with EN with Matchers {
 
   def waitForPageToLoad(): WebElement = waitFor(visibilityOfElementLocated(By.tagName("body")))
 
-//  Thread.sleep - if you're desperate
+  // Thread.sleep - if you're desperate
   def waitForMillisec(time: Int): Unit = TimeUnit.MILLISECONDS.sleep(time)
 }
 

@@ -2,12 +2,13 @@ package projectName.mongo
 
 import java.util.concurrent.TimeUnit
 
+import com.typesafe.scalalogging.LazyLogging
 import org.mongodb.scala._
 
 import scala.concurrent.Await
 import scala.concurrent.duration.Duration
 
-object MongoHelper {
+object MongoHelper extends LazyLogging {
 
   implicit class DocumentObservable[C](val observable: Observable[Document]) extends ImplicitObservable[Document] {
     override val converter: Document => String = doc => doc.toJson
@@ -27,9 +28,9 @@ object MongoHelper {
 
     def printResults(initial: String = ""): Unit = {
       if (initial.length > 0) print(initial)
-      results().foreach(res => println(converter(res)))
+      results().foreach(res => logger.info(converter(res)))
     }
 
-    def printHeadResult(initial: String = ""): Unit = println(s"$initial${converter(headResult())}")
+    def printHeadResult(initial: String = ""): Unit = logger.info(s"$initial${converter(headResult())}")
   }
 }
