@@ -3,6 +3,7 @@ package projectName.api
 import scalaj.http.{Http, HttpOptions, HttpResponse}
 
 
+// TODO: Refactor to use Play WSClient
 trait RequestBuilder {
 
   val jsonHeader: Map[String, String] = Map("Content-Type" -> "application/json")

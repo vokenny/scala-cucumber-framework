@@ -1,11 +1,10 @@
 package projectName.utils
 
 case class TestConfig(automationUrl: String,
-                      catFactUrl: String,
-                      pokéApiUrl: String,
-                      pirateUrl: String
+                      pokéApiUrl: String
                      )
 
+// TODO: Move to application.conf
 object Configuration {
   lazy val environment: String = Option(System.getProperty("environment")).getOrElse("local").toLowerCase
 
@@ -13,25 +12,19 @@ object Configuration {
     case "local" =>
       TestConfig(
         automationUrl = "http://automationpractice.com",
-        catFactUrl    = "https://cat-fact.herokuapp.com",
-        pokéApiUrl    = "https://pokeapi.co/api/v2/pokemon",
-        pirateUrl     = "https://api.funtranslations.com/translate"
+        pokéApiUrl    = "https://pokeapi.co/api/v2/pokemon"
       )
 
     case "dev" =>
       TestConfig(
         automationUrl = "http://automationpractice.com",
-        catFactUrl    = "https://cat-fact.herokuapp.com",
-        pokéApiUrl    = "https://pokeapi.co/api/v2/pokemon",
-        pirateUrl     = "https://api.funtranslations.com/translate"
+        pokéApiUrl    = "https://pokeapi.co/api/v2/pokemon"
       )
 
     case "qa" =>
       TestConfig(
         automationUrl = "http://automationpractice.com",
-        catFactUrl    = "https://cat-fact.herokuapp.com",
-        pokéApiUrl    = "https://pokeapi.co/api/v2/pokemon",
-        pirateUrl     = "https://api.funtranslations.com/translate"
+        pokéApiUrl    = "https://pokeapi.co/api/v2/pokemon"
       )
 
     case _ => throw new IllegalArgumentException(s"Environment '$environment' not known")

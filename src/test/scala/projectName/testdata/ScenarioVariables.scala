@@ -3,7 +3,7 @@ package projectName.testdata
 import projectName.testdata.models.AutomationPractice.TestCust
 import projectName.testdata.models.PokéApi.{Abilities, AbridgedAbility, AbridgedPokéProfile}
 
-
+// TODO: Refactor to ScenarioContext
 object ScenarioVariables {
 
   var testSetUp: Boolean = true
