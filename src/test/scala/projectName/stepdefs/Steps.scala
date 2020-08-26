@@ -9,6 +9,7 @@ import projectName.utils.driver.Driver
 import org.openqa.selenium._
 import org.openqa.selenium.support.ui.{ExpectedCondition, WebDriverWait}
 import org.scalatest.Matchers
+import projectName.client.HttpClient
 import projectName.testdata.ScenarioVariables
 import projectName.mongo.Mongo
 import projectName.testdata.ScenarioVariables.testSetUp
@@ -21,6 +22,7 @@ trait Steps extends ScalaDsl with EN with Matchers with LazyLogging {
   implicit def getDriverUnsafe: WebDriver = _driver.getOrElse(sys.error("Driver does not exist"))
   implicit def getWaitUnsafe: WebDriverWait = _wait.getOrElse(sys.error("WebDriverWait object does not exist"))
 
+  val httpClient = new HttpClient
 
 //  create a new driver for each scenario
   Before { _ =>

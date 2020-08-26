@@ -1,7 +1,7 @@
 package projectName.testdata
 
+import projectName.client.StoredResponse
 import projectName.testdata.models.AutomationPractice.TestCust
-import projectName.testdata.models.PokéApi.{Abilities, AbridgedAbility, AbridgedPokéProfile}
 
 // TODO: Refactor to ScenarioContext
 object ScenarioVariables {
@@ -9,16 +9,12 @@ object ScenarioVariables {
   var testSetUp: Boolean = true
 
   var user: TestCust = TestCust.person
-  var storedResponse: StoredResponse = StoredResponse(0, "")
-  var idCatFact: String = ""
+  var storedResponse: StoredResponse = StoredResponse(0, None, None)
   var pokémon: String = ""
-  var englishText: String = ""
 
   def reset(): Unit = {
     user = TestCust.person
-    storedResponse = StoredResponse(0, "")
-    idCatFact = ""
+    storedResponse = StoredResponse(0, None, None)
     pokémon = ""
-    englishText = ""
   }
 }
