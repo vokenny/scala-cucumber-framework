@@ -10,21 +10,20 @@ import org.openqa.selenium._
 import org.openqa.selenium.support.ui.{ExpectedCondition, WebDriverWait}
 import org.scalatest.Matchers
 import projectName.client.HttpClient
-import projectName.testdata.ScenarioVariables
 import projectName.mongo.Mongo
-import projectName.testdata.ScenarioVariables.testSetUp
+import projectName.testdata.ScenarioContext
 
 trait Steps extends ScalaDsl with EN with Matchers with LazyLogging {
 
   import Steps._
 
-//  Tries to get the value of [[_driver]] and [[_wait]] - will throw an exception if they don't exist
+  // Tries to get the value of [[_driver]] and [[_wait]] - will throw an exception if they don't exist
   implicit def getDriverUnsafe: WebDriver = _driver.getOrElse(sys.error("Driver does not exist"))
   implicit def getWaitUnsafe: WebDriverWait = _wait.getOrElse(sys.error("WebDriverWait object does not exist"))
 
   val httpClient = new HttpClient
 
-//  create a new driver for each scenario
+  // Create a new driver for each scenario
   Before { _ =>
     if (_driver.isEmpty) {
       _driver = Some(Driver.initialiseDriver())
@@ -35,27 +34,21 @@ trait Steps extends ScalaDsl with EN with Matchers with LazyLogging {
       _wait = Some(wdw)
     }
 
-    if (testSetUp) {
-      logger.info("Test Set Up")
-      ScenarioVariables.reset()
-      Mongo.dropDatabase()
-      testSetUp = false
-    }
+    logger.info("Test Set Up")
+    ScenarioContext.reset()
+    Mongo.dropDatabase()
   }
 
 
   After { _ =>
-    // TODO: Move shutdown to config
+    // TODO: Add shutdown to config
     // Disable the following line to prevent automatic shutdown
     _driver.foreach(_.quit())
     _driver = None
 
-    if (!testSetUp) {
-      logger.info("Test Teardown")
-      ScenarioVariables.reset()
-      Mongo.dropDatabase()
-      testSetUp = true
-    }
+    logger.info("Test Teardown")
+    ScenarioContext.reset()
+    Mongo.dropDatabase()
   }
 
   def waitFor[T](condition: ExpectedCondition[T]): T = {

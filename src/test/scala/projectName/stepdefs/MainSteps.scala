@@ -1,18 +1,20 @@
 package projectName.stepdefs
 
 import projectName.pages._
-import projectName.testdata.ScenarioVariables._
+import projectName.testdata.ScenarioContext
 import projectName.testdata.models.AutomationPractice.TestCust
 import projectName.utils.HelperFunctions
 
 class MainSteps extends Steps {
 
   Given("""^the User is a (.*) customer$""") { userType: String =>
-    user = userType match {
+    val user = userType match {
       case "New"      => TestCust.person
       case "Existing" => TestCust.person
       case "Etc"      => TestCust.person
     }
+
+    ScenarioContext.set("user", user)
   }
 
   When("""^the User navigates to the (.*) page$""") { page: String =>
@@ -24,11 +26,15 @@ class MainSteps extends Steps {
   }
 
   When("""^the User submits a valid email address$""") { () =>
+    val user = ScenarioContext.get[TestCust]("user")
+
     AuthPage.enterEmail(user.email)
     AuthPage.clickCreateAccount()
   }
 
   When("""^the User submits valid registration details$""") { () =>
+    val user = ScenarioContext.get[TestCust]("user")
+
     RegistrationPage.enterValidDetails(user)
     RegistrationPage.clickRegister()
   }
