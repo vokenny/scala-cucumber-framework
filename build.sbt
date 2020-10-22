@@ -16,6 +16,5 @@ libraryDependencies ++= Seq(
   "com.typesafe.scala-logging" %% "scala-logging"           % "3.9.2",
   "ch.qos.logback"             %  "logback-classic"         % "1.2.3",
   "io.cucumber"                %  "cucumber-junit"          % CucumberVersion,
-  "io.cucumber"                %% "cucumber-scala"          % CucumberVersion,
-  "org.mongodb.scala"          %% "mongo-scala-driver"      % "2.7.0"
+  "io.cucumber"                %% "cucumber-scala"          % CucumberVersion
 )

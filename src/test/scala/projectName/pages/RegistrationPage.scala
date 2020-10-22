@@ -3,12 +3,11 @@ package projectName.pages
 import projectName.pages.traits.RegBasePage
 import projectName.testdata.models.AutomationPractice.Title.Title
 import projectName.testdata.models.AutomationPractice.{TestCust, Title}
-import projectName.utils.Configuration.testConfig
-
+import projectName.utils.BaseUrls.automationBaseUrl
 
 object RegistrationPage extends RegBasePage {
 
-  val url: String = s"${testConfig.automationUrl}/index.php?controller=authentication&back=my-account#account-creation"
+  val url: String = s"$automationBaseUrl/index.php?controller=authentication&back=my-account#account-creation"
 
   val expectedPageTitle: String = "Login - My Store"
   val expectedPageHeader: String = "CREATE AN ACCOUNT"

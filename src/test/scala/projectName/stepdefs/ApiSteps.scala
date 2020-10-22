@@ -10,8 +10,8 @@ import scala.concurrent.duration._
 class ApiSteps extends Steps {
 
   When("""^the GET request is made to the PokéApi endpoint$""") { () =>
-    val connector = new PokéApiConnector(httpClient)
-    val pokémon = ScenarioContext.get[String]("pokémon")
+    val connector: PokéApiConnector = new PokéApiConnector()
+    val pokémon: String = ScenarioContext.get[String]("pokémon")
 
     ScenarioContext.set("storedResponse", Await.result(connector.getPokémon(pokémon), 10.seconds))
   }

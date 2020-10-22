@@ -1,11 +1,11 @@
 package projectName.pages
 
 import projectName.pages.traits.BasePage
-import projectName.utils.Configuration.testConfig
+import projectName.utils.BaseUrls.automationBaseUrl
 
 object AuthPage extends BasePage {
 
-  val url: String = s"${testConfig.automationUrl}/index.php?controller=authentication&back=my-account"
+  val url: String = s"$automationBaseUrl/index.php?controller=authentication&back=my-account"
 
   val expectedPageTitle: String = "Login - My Store"
   val expectedPageHeader: String = "AUTHENTICATION"

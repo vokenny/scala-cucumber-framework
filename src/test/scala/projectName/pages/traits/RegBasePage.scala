@@ -22,4 +22,5 @@ trait RegBasePage extends BasePage {
   lazy val mobile: WebElement = id("phone_mobile").webElement
 
   lazy val alias: WebElement = id("alias").webElement
+
 }

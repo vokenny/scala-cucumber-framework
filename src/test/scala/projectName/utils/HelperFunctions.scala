@@ -16,6 +16,7 @@ object HelperFunctions extends BasePage {
   def navigateTo(page: String): Unit = {
     page match {
       case "Home"   => HomePage.goToPage()
+      case "Google" => goTo("https://www.google.com")
     }
   }
 

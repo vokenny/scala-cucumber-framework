@@ -1,32 +1,24 @@
 package projectName.utils
 
-case class TestConfig(automationUrl: String,
-                      pokéApiUrl: String
-                     )
+import com.typesafe.config.{Config, ConfigFactory}
+import projectName.utils.Environment._
 
-// TODO: Move to application.conf
 object Configuration {
-  lazy val environment: String = Option(System.getProperty("environment")).getOrElse("local").toLowerCase
 
-  lazy val testConfig: TestConfig = environment match {
-    case "local" =>
-      TestConfig(
-        automationUrl = "http://automationpractice.com",
-        pokéApiUrl    = "https://pokeapi.co/api/v2/pokemon"
-      )
+  val config: Config = ConfigFactory.load()
 
-    case "dev" =>
-      TestConfig(
-        automationUrl = "http://automationpractice.com",
-        pokéApiUrl    = "https://pokeapi.co/api/v2/pokemon"
-      )
+  val driverLocation: String = config.getString("webdriver.chrome.driver")
+  sys.props += (("webdriver.chrome.driver", driverLocation))
 
-    case "qa" =>
-      TestConfig(
-        automationUrl = "http://automationpractice.com",
-        pokéApiUrl    = "https://pokeapi.co/api/v2/pokemon"
-      )
+  val envStr: String = config.getString("environment")
+  val env: Environment = Environment.parse(envStr)
+  val defaultConfig: Config = config.getConfig("local")
+  val envConfig: Config = config.getConfig(envStr).withFallback(defaultConfig)
 
-    case _ => throw new IllegalArgumentException(s"Environment '$environment' not known")
-  }
+  def base(serviceName: String): String = envConfig.getString(s"services.$serviceName.productionRoute")
+
+  def teardown: Boolean = config.getBoolean("teardown")
+
+  def headless: Boolean = config.getBoolean("headless")
+
 }
