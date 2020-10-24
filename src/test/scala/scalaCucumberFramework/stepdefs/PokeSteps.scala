@@ -1,9 +1,8 @@
 package scalaCucumberFramework.stepdefs
 
 import scalaCucumberFramework.client.StoredResponse
-import scalaCucumberFramework.stepdefs.DriverActions._
 import scalaCucumberFramework.testdata.ScenarioContext
-import scalaCucumberFramework.testdata.models.PokeApi.AbridgedPokeProfile
+import scalaCucumberFramework.testdata.models.pokeapi.AbridgedPokeProfile
 
 class PokeSteps extends BaseSteps {
 

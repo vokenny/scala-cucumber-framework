@@ -2,6 +2,9 @@
 
 This is a user acceptance test suite using Scala on the BDD Cucumber framework.
 
+Example UI tests have been written for [The Internet by SauceLabs](https://github.com/saucelabs/the-internet).
+Example API tests have been written for [Poké API by The PokéAPI project](https://github.com/PokeAPI/pokeapi)
+
 ## Running The Tests
 
 ### Via sbt command
@@ -12,15 +15,15 @@ sbt -Dbrowser=chrome -Dheadless={true|false} clean 'test-only projectName.runner
 ### Via IntelliJ
 Set Cucumber Java configuration to:
 ```
-Glue: projectName.stepdefs
+Glue: scalaCucumberFramework.stepdefs
 Feature path: src/test/resources/features
 VM options: -Dbrowser=chrome -Dheadless={true|false}
 ```
 
-Set JUnit configuration to:
+And set JUnit configuration to:
 ```
-VM Options: -Denvironment={local|staging} -Dbrowser={chrome|headless}
+VM Options: -Dbrowser=chrome -Dheadless={true|false}
 Working directory: <blank>
 ```
 
-Then from the src/test/scala/projectName/runner directory, right-click > run your choice of test runner
+Then from the src/test/scala/scalaCucumberFramework/runner directory, right-click > run your choice of test runner

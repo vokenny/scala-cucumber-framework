@@ -2,7 +2,7 @@ package scalaCucumberFramework.stepdefs
 
 import scalaCucumberFramework.client.StoredResponse
 import scalaCucumberFramework.connector.PokeApiConnector
-import scalaCucumberFramework.stepdefs.DriverActions._
+import scalaCucumberFramework.client.HttpClient._
 import scalaCucumberFramework.testdata.ScenarioContext
 
 import scala.concurrent.Await

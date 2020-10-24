@@ -1,26 +1,18 @@
 package scalaCucumberFramework.utils
 
-import scalaCucumberFramework.pages.{BasePage, _}
-import scalaCucumberFramework.stepdefs.DriverActions._
+import scalaCucumberFramework.pages.BasePage
+import scalaCucumberFramework.pages.pageUtils.PageObjs
+import scalaCucumberFramework.stepdefs.DriverActions
 
-object HelperFunctions {
+object HelperFunctions extends DriverActions {
 
-  // TODO: Refactor to convert String to Objects (functional), then go to their page object URLs
-  def navigateTo(page: String): Unit = {
-    val url: String = page match {
-      case "Home"   => HomePage.url
-      case "Google" => "https://www.google.com"
-    }
-
-    goTo(url)
+  def navigateTo(pageStr: String): Unit = {
+    val page: BasePage = PageObjs.fromString(pageStr)
+    goTo(page.url)
   }
 
-  // TODO: Refactor to convert String to Objects (functional), then go to their page object URLs
   def expectedPage(pageStr: String): Unit = {
-    val page: BasePage = pageStr match {
-      case "Home" => HomePage
-    }
-
+    val page: BasePage = PageObjs.fromString(pageStr)
     page.shouldBeLoaded()
   }
 

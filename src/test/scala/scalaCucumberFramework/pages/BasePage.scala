@@ -1,8 +1,11 @@
 package scalaCucumberFramework.pages
 
-import scalaCucumberFramework.stepdefs.DriverActions.{assertCurrentPageHeader, assertCurrentPageTitle, assertCurrentUrl, waitForPageToLoad}
+import org.scalatest.Matchers
+import scalaCucumberFramework.stepdefs.DriverActions
 
-trait BasePage {
+trait BasePage extends DriverActions with Matchers {
+
+  override def toString: String = this.getClass.getSimpleName.dropRight(1) // drop trailing "$" added by Scala compiler
 
   val url: String
   val expectedPageTitle: String
@@ -10,9 +13,15 @@ trait BasePage {
 
   def shouldBeLoaded(): Unit = {
     waitForPageToLoad()
-    assertCurrentUrl(url)
-    assertCurrentPageTitle(expectedPageTitle)
-    assertCurrentPageHeader(expectedPageHeader)
+    assertCurrentUrl()
+    assertCurrentPageTitle()
+    assertCurrentPageHeader()
   }
+
+  def pageHeader: String = cssSelector("h1").webElement.getText
+
+  def assertCurrentUrl(): Unit = currentUrl should be (url)
+  def assertCurrentPageTitle(): Unit = pageTitle should be (expectedPageTitle)
+  def assertCurrentPageHeader(): Unit = pageHeader should be (expectedPageHeader)
 
 }

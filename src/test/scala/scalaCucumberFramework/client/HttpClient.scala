@@ -55,3 +55,7 @@ class HttpClient extends LazyLogging {
   }
 
 }
+
+object HttpClient {
+  implicit val httpClient: HttpClient = new HttpClient
+}

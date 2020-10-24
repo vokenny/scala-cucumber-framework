@@ -2,7 +2,7 @@ package scalaCucumberFramework.utils
 
 object BaseUrls {
 
-  val automationBaseUrl: String = Configuration.base("automation-practice")
+  val theInternetBaseUrl: String = Configuration.base("the-internet")
   val pokeApiBaseUrl: String = Configuration.base("poke-api")
 
 }

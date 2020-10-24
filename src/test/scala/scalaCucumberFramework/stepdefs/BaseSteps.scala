@@ -2,13 +2,14 @@ package scalaCucumberFramework.stepdefs
 
 import com.typesafe.scalalogging.LazyLogging
 import cucumber.api.scala.{EN, ScalaDsl}
+import org.scalatest.Matchers
 import scalaCucumberFramework.testdata.ScenarioContext
 import scalaCucumberFramework.utils.Configuration.teardown
 import scalaCucumberFramework.utils.SingletonDriver
 
 import scala.util.Try
 
-trait BaseSteps extends ScalaDsl with EN with LazyLogging
+trait BaseSteps extends ScalaDsl with EN with LazyLogging with Matchers
 
 object BaseSteps extends BaseSteps {
 
