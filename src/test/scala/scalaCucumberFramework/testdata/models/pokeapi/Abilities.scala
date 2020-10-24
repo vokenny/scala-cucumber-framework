@@ -1,4 +1,4 @@
-package scalaCucumberFramework.testdata.models.pokeApi
+package scalaCucumberFramework.testdata.models.pokeapi
 
 import play.api.libs.json.{Format, Json}
 
