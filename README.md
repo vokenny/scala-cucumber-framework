@@ -2,7 +2,8 @@
 
 This is a user acceptance test suite using Scala on the BDD Cucumber framework.
 
-Example UI tests have been written for [The Internet by SauceLabs](https://github.com/saucelabs/the-internet).
+Example UI tests have been written for [The Internet by SauceLabs](https://github.com/saucelabs/the-internet)
+
 Example API tests have been written for [Poké API by The PokéAPI project](https://github.com/PokeAPI/pokeapi)
 
 ## Running The Tests
