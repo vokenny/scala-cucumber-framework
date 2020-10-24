@@ -16,7 +16,6 @@ import scala.util.Try
 trait Steps extends ScalaDsl with EN with Matchers with LazyLogging {
 
   implicit def driver: WebDriver = SingletonDriver.getDriver
-  implicit def wdw: WebDriverWait = SingletonDriver.getWebDriverWait
   implicit val httpClient: HttpClient = new HttpClient
 
   Before { _ =>
