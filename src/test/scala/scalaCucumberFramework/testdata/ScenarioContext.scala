@@ -11,7 +11,7 @@ object ScenarioContext {
   def get[T](key: String): T = {
     variables.get(key).map(_.asInstanceOf[T]) match {
       case Some(v) => v
-      case None => throw new Exception(s"Scenario variable '$key' is not found")
+      case None => throw new Exception(s"Scenario variable [$key] is not found")
     }
   }
 
