@@ -8,12 +8,13 @@ object PageObjs {
 
   private val pagesDir: File = new File("src/test/scala/scalaCucumberFramework/pages")
   private val endExt: List[String] = List("Page.scala")
-  private val pages: List[BasePage] = FileSys.getListOfFiles(pagesDir, endExt).map(convertFileToBasePage)
+  private val pages: List[BasePage] = FileSys.getAllFilesUnderDir(pagesDir, endExt).flatMap(convertFileToBasePage)
 
-  private def convertFileToBasePage(file: File): BasePage = {
+  private def convertFileToBasePage(file: File): Option[BasePage] = {
     file.getName match {
-      case "ChallengingDomPage.scala" => ChallengingDomPage
-      case "InternetPage.scala"       => InternetPage
+      case "ChallengingDomPage.scala" => Some(ChallengingDomPage)
+      case "InternetPage.scala"       => Some(InternetPage)
+      case _ => None
     }
   }
 
