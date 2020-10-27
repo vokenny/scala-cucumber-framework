@@ -1,7 +1,6 @@
 package scalaCucumberFramework.utils
 
 import com.typesafe.config.{Config, ConfigFactory}
-import scalaCucumberFramework.utils.Environment._
 
 object Configuration {
 

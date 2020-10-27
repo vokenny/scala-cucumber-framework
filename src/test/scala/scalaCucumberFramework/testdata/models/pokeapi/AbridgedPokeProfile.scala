@@ -1,7 +1,6 @@
 package scalaCucumberFramework.testdata.models.pokeapi
 
 import play.api.libs.json._
-import scalaCucumberFramework.testdata.models.pokeApi.Abilities
 
 // pokeApi returns a lot of data that I don't care about
 // so I only take what I want to assert

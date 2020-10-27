@@ -2,7 +2,7 @@ package scalaCucumberFramework.utils
 
 import java.io.File
 
-import scalaCucumberFramework.pages.{BasePage, ChallengingDomPage, InternetPage}
+import scalaCucumberFramework.pages._
 
 object PageObjs {
 
@@ -12,8 +12,11 @@ object PageObjs {
 
   private def convertFileToBasePage(file: File): Option[BasePage] = {
     file.getName match {
-      case "ChallengingDomPage.scala" => Some(ChallengingDomPage)
-      case "InternetPage.scala"       => Some(InternetPage)
+      case "ChallengingDomPage.scala"         => Some(ChallengingDomPage)
+      case "InternetPage.scala"               => Some(InternetPage)
+      case "DynamicLoadingPage.scala"         => Some(DynamicLoadingPage)
+      case "DynamicLoadingExample1Page.scala" => Some(DynamicLoadingExample1Page)
+      case "DynamicLoadingExample2Page.scala" => Some(DynamicLoadingExample2Page)
       case _ => None
     }
   }
