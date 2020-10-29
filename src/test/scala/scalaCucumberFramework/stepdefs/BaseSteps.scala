@@ -25,15 +25,7 @@ object BaseSteps extends BaseSteps {
     ScenarioContext.reset()
   }
 
-  After { scenario =>
-    if (scenario.isFailed) {
-      import org.apache.commons.io.FileUtils
-      import org.openqa.selenium.OutputType
-      import org.openqa.selenium.TakesScreenshot
-      val scrFile = driver.asInstanceOf[TakesScreenshot].getScreenshotAs(OutputType.FILE)
-      FileUtils.copyFile(scrFile, new Nothing("c:\\tmp\\screenshot.png"))
-    }
-
+  After { _ =>
     if (teardown) Try(SingletonDriver.closeInstance())
 
     logger.info("Test data teardown")
