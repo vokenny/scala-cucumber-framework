@@ -7,21 +7,18 @@ trait BasePage extends DriverActions with Matchers {
 
   override def toString: String = this.getClass.getSimpleName.dropRight(1) // drop trailing "$" added by Scala compiler
 
-  val url: String
-  val expectedPageTitle: String
-  val expectedPageHeader: String
+  def url: String
+  def expectedPageTitle: String
+  def expectedPageHeader: String
+
+  def pageHeader: String = cssSelector("h1").webElement.getText
+  def content: String = id("content").webElement.getText
 
   def shouldBeLoaded(): Unit = {
     waitForPageToLoad()
-    assertCurrentUrl()
-    assertCurrentPageTitle()
-    assertCurrentPageHeader()
+    currentUrl should be (url)
+    pageTitle should be (expectedPageTitle)
+    pageHeader should be (expectedPageHeader)
   }
-
-  def pageHeader: String = cssSelector("h1").webElement.getText
-
-  def assertCurrentUrl(): Unit = currentUrl should be (url)
-  def assertCurrentPageTitle(): Unit = pageTitle should be (expectedPageTitle)
-  def assertCurrentPageHeader(): Unit = pageHeader should be (expectedPageHeader)
 
 }

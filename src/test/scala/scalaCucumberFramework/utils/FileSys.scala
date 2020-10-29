@@ -6,6 +6,10 @@ import scala.annotation.tailrec
 
 object FileSys {
 
+  val testFilesDirPath: String = "src/test/scala/scalaCucumberFramework/testdata/files/"
+
+  def getTestFile(fileName: String): File = new File(testFilesDirPath + fileName)
+
   def getAllFilesUnderDir(dir: File, extensions: List[String]): List[File] = {
     @tailrec
     def extractFiles(files: List[File], result: List[File]): List[File] = {

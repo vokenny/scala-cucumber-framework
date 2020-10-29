@@ -1,5 +1,6 @@
 package scalaCucumberFramework.pages
 
+import org.openqa.selenium.WebElement
 import scalaCucumberFramework.utils.BaseUrls.theInternetBaseUrl
 
 object ChallengingDomPage extends BasePage {
@@ -10,4 +11,6 @@ object ChallengingDomPage extends BasePage {
   val expectedPageTitle: String = "The Internet"
   val expectedPageHeader: String = "Challenging DOM"
 
+  def randomisedBtns: List[WebElement] =
+    findAll(cssSelector("div.large-2.columns > a")).map(_.underlying).toList
 }

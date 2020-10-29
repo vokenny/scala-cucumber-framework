@@ -11,7 +11,7 @@ class PokeApiConnector(implicit client: HttpClient) extends RequestHeaders {
   // See https://pokeapi.co/ for API Documentation
 
   def getpokemon(name: String): Future[StoredResponse] = {
-    val url: String = s"$pokeApiBaseUrl/pokemon/${name.toLowerCase}"
+    val url: String = s"$pokeApiBaseUrl/api/v2/pokemon/${name.toLowerCase}"
     client.GET(url)
   }
 

@@ -9,12 +9,19 @@ object ScenarioContext {
   }
 
   def get[T](key: String): T = {
-    variables.get(key).map(_.asInstanceOf[T]) match {
-      case Some(v) => v
-      case None => throw new Exception(s"Scenario variable [$key] is not found")
-    }
+    variables
+      .get(key)
+      .fold(throw new Exception(s"Scenario variable [$key] is not found"))(_.asInstanceOf[T])
   }
 
-  def reset(): Unit = variables.foreach { case (key, _) => variables - key }
+  def getOrElse[T](key: String, elseResult: T): T = {
+    variables
+      .get(key)
+      .fold(elseResult)(_.asInstanceOf[T])
+  }
+
+  def remove(key: String): Unit = variables = variables - key
+
+  def reset(): Unit = variables.foreach { case (key, _) => remove(key) }
 
 }

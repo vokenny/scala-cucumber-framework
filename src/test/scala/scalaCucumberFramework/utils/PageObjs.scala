@@ -12,11 +12,14 @@ object PageObjs {
 
   private def convertFileToBasePage(file: File): Option[BasePage] = {
     file.getName match {
+      case "BasicAuthPage.scala"              => Some(BasicAuthPage)
       case "ChallengingDomPage.scala"         => Some(ChallengingDomPage)
-      case "InternetPage.scala"               => Some(InternetPage)
-      case "DynamicLoadingPage.scala"         => Some(DynamicLoadingPage)
+      case "DragAndDropPage.scala"            => Some(DragAndDropPage)
       case "DynamicLoadingExample1Page.scala" => Some(DynamicLoadingExample1Page)
       case "DynamicLoadingExample2Page.scala" => Some(DynamicLoadingExample2Page)
+      case "DynamicLoadingPage.scala"         => Some(DynamicLoadingPage)
+      case "FileUploaderPage.scala"           => Some(FileUploaderPage)
+      case "InternetPage.scala"               => Some(InternetPage)
       case _ => None
     }
   }

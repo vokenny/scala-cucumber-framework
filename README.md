@@ -10,7 +10,7 @@ Example API tests have been written for [Poké API by The PokéAPI project](http
 
 ### Via sbt command
 ```
-sbt -Dbrowser=chrome -Dheadless={true|false} clean 'test-only projectName.runner.Runner'
+sbt -Dbrowser=chrome -Dheadless={true|false} clean 'test-only scalaCucumberFramework.runners.Runner'
 ```
 
 ### Via IntelliJ
@@ -27,4 +27,4 @@ VM Options: -Dbrowser=chrome -Dheadless={true|false}
 Working directory: <blank>
 ```
 
-Then from the src/test/scala/scalaCucumberFramework/runner directory, right-click > run your choice of test runner
+Then from the src/test/scala/scalaCucumberFramework/runners directory, right-click > run your choice of test runner
