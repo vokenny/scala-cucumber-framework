@@ -1,30 +1,22 @@
 # scala-cucumber-framework
 
-This is a user acceptance test suite using Scala on the BDD Cucumber framework.
+This is a user acceptance test suite using Scala and Selenium, with Cucumber & Gherkin BDD.
+It also involves API tests using Scala Play's Web Service client to manage network requests.
 
 Example UI tests have been written for [The Internet by SauceLabs](https://github.com/saucelabs/the-internet)
 
 Example API tests have been written for [Poké API by The PokéAPI project](https://github.com/PokeAPI/pokeapi)
 
+## Dependencies
+
+### Scala Build Tool `sbt`
+Needed for compiling and running the tests
+
+https://www.scala-sbt.org/
+
 ## Running The Tests
 
-### Via sbt command
+### Via the CLI
 ```
 sbt -Dbrowser=chrome -Dheadless={true|false} clean 'test-only scalaCucumberFramework.runners.Runner'
 ```
-
-### Via IntelliJ
-Set Cucumber Java configuration to:
-```
-Glue: scalaCucumberFramework.stepdefs
-Feature path: src/test/resources/features
-VM options: -Dbrowser=chrome -Dheadless={true|false}
-```
-
-And set JUnit configuration to:
-```
-VM Options: -Dbrowser=chrome -Dheadless={true|false}
-Working directory: <blank>
-```
-
-Then from the src/test/scala/scalaCucumberFramework/runners directory, right-click > run your choice of test runner
