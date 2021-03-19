@@ -16,7 +16,26 @@ https://www.scala-sbt.org/
 
 ## Running The Tests
 
-### Via the CLI
+### Getting started
+Replace the existing `chromedrive.exe` in `driverbinaries` directory with the corresponding chromedriver version for your version of Chrome.
+
+[Chromedriver version downloads](https://chromedriver.chromium.org/downloads)
+
+#### Via the CLI
 ```
-sbt -Dbrowser=chrome -Dheadless={true|false} clean 'test-only scalaCucumberFramework.runners.Runner'
+sbt -Dbrowser=chrome -Dheadless={true|false} -Denvironment={local|staging} clean 'test-only scalaCucumberFramework.runners.Runner'
 ```
+
+#### Via test runners
+1. Set configuration for JUnit:
+   ```
+   VM options: -Dbrowser=chrome -Dheadless={true|false} -Denvironment={local|staging}
+   Working directory: <blank>
+   ```
+2. Set configuration for Cucumber java:
+   ```
+   Glue: scalaCucumberFramework.stepdefs
+   Feature or folder path: src/test/resources/features
+   VM options: -Dbrowser=chrome -Denvironment=local
+   ```
+4. Select Runner to run inside `/scala/scalaCucumberFramework/runners` by right-clicking and selecting `Run`
